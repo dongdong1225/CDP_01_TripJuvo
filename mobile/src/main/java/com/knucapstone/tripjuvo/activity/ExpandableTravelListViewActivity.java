@@ -62,6 +62,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		adapter = new ExampleAdapter(this);
 		adapter.setData(items);
 
+		//Git Test
 		//com.knucapstone.tripjuvo;
 		RobotoTextView title;
 		ImageView imageview;
