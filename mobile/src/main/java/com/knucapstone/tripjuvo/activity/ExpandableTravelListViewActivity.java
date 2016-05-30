@@ -115,7 +115,6 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		} else {
 			listView.setIndicatorBoundsRelative(width - px, width);
 		}
-
 	}
 
 	private static class GroupItem {
