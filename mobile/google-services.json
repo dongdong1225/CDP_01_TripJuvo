@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "96405965131",
+    "project_id": "tripjuvo"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96405965131:android:f0b0188256e65f31",
+        "android_client_info": {
+          "package_name": "com.knucapstone.tripjuvo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYj0C-HtXbNTN_dk5YY8ER4qqiDaKFO84"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
