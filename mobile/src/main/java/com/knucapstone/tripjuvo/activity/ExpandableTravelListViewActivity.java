@@ -150,13 +150,14 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		SQLiteDatabase db = openOrCreateDatabase(
 				"cityguide.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-
+		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1 and city = '" +city_name+ "';", null);
 		Cursor c_sleep= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 2 and city = '" +city_name+ "';",null);
 		Cursor c_go= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 3 and city = '" +city_name+ "';",null);
 
 		c_eat.moveToFirst();
 		c_sleep.moveToFirst();
 		c_go.moveToFirst();
+		//fu
 		GroupItem item = new GroupItem();
 		item.title = "Where to go";
 		item.icon = R.string.material_icon_go;
