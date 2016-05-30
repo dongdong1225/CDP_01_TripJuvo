@@ -38,7 +38,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	private String city_name;
 	private String picture_URL;
 	private Activity activity;
-
+	ArrayList<ExpandableData> expandableDatalist = new ArrayList<ExpandableData>();
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +110,14 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+				int poi_id = 0;
+				for(int i =0; i< expandableDatalist.size();i++) {
+					if (expandableDatalist.get(i).getPosition() == groupPosition &&
+							expandableDatalist.get(i).getChildPosition() == childPosition)
+						poi_id = expandableDatalist.get(i).getPoi_id();
+				}
 
-				Intent intent = PoiDetailActivity.newIntent(activity,1);
+				Intent intent = PoiDetailActivity.newIntent(activity,poi_id);
 				Log.i("onChildClick",groupPosition + "  " +childPosition+ "  "+id);
 				startActivity(intent);
 				return false;
@@ -143,6 +149,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 
 	private static class ChildItem {
 		String title;
+		int poi_id;
 	}
 
 	private static class ChildHolder {
@@ -166,25 +173,32 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	private List<GroupItem> fillData(List<GroupItem> items) {
 
 		//category_id ->1 = where to eat, 2 = where to sleep, 3 = where to go
-		SQLiteDatabase db = openOrCreateDatabase(
-				"cityguide.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+		SQLiteDatabase db = openOrCreateDatabase("cityguide.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
 		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1 and city = '" + city_name + "';", null);
 		Cursor c_sleep= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 2 and city = '" +city_name+ "';",null);
 		Cursor c_go= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 3 and city = '" +city_name+ "';",null);
 
 		c_eat.moveToFirst();
+		int cnt_eat = 0;
 		c_sleep.moveToFirst();
+		int cnt_sleep =0;
 		c_go.moveToFirst();
+		int cnt_go = 0;
 		//fu
 		GroupItem item = new GroupItem();
 		item.title = "Where to go";
 		item.icon = R.string.material_icon_go;
+
 		while(c_go.getCount() > 0) {
 			ChildItem child;
 			child = new ChildItem();
 			child.title = c_go.getString(2);
+			child.poi_id = c_go.getInt(0);
 			item.items.add(child);
+			ExpandableData ExpD = new ExpandableData(c_go.getInt(0),0,cnt_go);
+			expandableDatalist.add(ExpD);
+			cnt_go++;
 			if(c_go.isLast())
 				break;
 			c_go.moveToNext();
@@ -198,7 +212,11 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			ChildItem child;
 			child = new ChildItem();
 			child.title = c_sleep.getString(2);
+			child.poi_id = c_sleep.getInt(0);
 			item.items.add(child);
+			ExpandableData ExpD = new ExpandableData(c_sleep.getInt(0),1,cnt_sleep);
+			expandableDatalist.add(ExpD);
+			cnt_sleep++;
 			if(c_sleep.isLast())
 				break;
 			c_sleep.moveToNext();
@@ -212,7 +230,11 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			ChildItem child;
 			child = new ChildItem();
 			child.title = c_eat.getString(2);
+			child.poi_id = c_eat.getInt(0);
 			item.items.add(child);
+			ExpandableData ExpD = new ExpandableData(c_eat.getInt(0),2,cnt_eat);
+			expandableDatalist.add(ExpD);
+			cnt_eat++;
 			if(c_eat.isLast())
 				break;
 			c_eat.moveToNext();
@@ -223,6 +245,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	}
 
 	private class ExampleAdapter extends AnimatedExpandableListAdapter {
+
 		private LayoutInflater inflater;
 
 		private List<GroupItem> items;
@@ -241,12 +264,10 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			return items.get(groupPosition).items.get(childPosition);
 
 		}
-
 		@Override
 		public long getChildId(int groupPosition, int childPosition) {
 
-
-			Log.i("ChildItemClick","asdf2");
+			Log.i("ChildItemClick", "asdf2");
 			return childPosition;
 		}
 
@@ -324,5 +345,6 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		public boolean isChildSelectable(int arg0, int arg1) {
 			return true;
 		}
+
 	}
 }
