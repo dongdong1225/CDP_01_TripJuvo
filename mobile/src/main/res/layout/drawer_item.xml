@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.knucapstone.tripjuvo.view.SelectorLinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:minHeight="@dimen/global_spacing_l"
+	android:orientation="horizontal"
+	android:gravity="center_vertical"
+	android:listSelector="@drawable/selector_clickable_item_bg">
+
+	<ImageView
+		android:id="@+id/drawer_item_icon"
+		android:layout_width="@dimen/global_spacing_m"
+		android:layout_height="@dimen/global_spacing_m"
+		android:layout_marginLeft="@dimen/global_keyline_s"
+		android:layout_marginRight="@dimen/global_spacing_xs"
+		android:adjustViewBounds="true"
+		android:scaleType="fitCenter" />
+
+	<TextView
+		android:id="@+id/drawer_item_name"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_marginRight="@dimen/global_keyline_s"
+		android:textAppearance="@style/TextAppearance.CityGuide.Body2" />
+
+	<TextView
+		android:id="@+id/drawer_item_count"
+		android:layout_width="@dimen/drawer_badge_size"
+		android:layout_height="@dimen/drawer_badge_size"
+		android:layout_marginRight="@dimen/global_keyline_s"
+		android:gravity="center"
+		android:textSize="@dimen/drawer_badge_text_size"
+		android:textColor="@color/drawer_badge_text_color"
+		android:background="@drawable/shape_drawer_badge" />
+
+</com.knucapstone.tripjuvo.view.SelectorLinearLayout>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<!-- Android source code: https://github.com/android/platform_frameworks_base/tree/lollipop-release/core/res/res/values -->
+	<!-- AppCompat source code: https://github.com/android/platform_frameworks_support/tree/lollipop-release/v7/appcompat/res/values -->
+
+	<!-- base theme -->
+	<style name="Theme.CityGuide" parent="@style/Theme.AppCompat.Light">
+		<item name="windowActionBar">false</item>
+		<item name="windowActionModeOverlay">true</item>
+		<item name="windowNoTitle">true</item>
+
+		<item name="android:windowBackground">@color/global_bg_back</item>
+		<item name="actionModeBackground">@color/theme_action_mode_bg</item>
+		<item name="android:navigationBarColor" tools:targetApi="21">@color/theme_navigation_bar</item>
+		<item name="android:colorButtonNormal" tools:targetApi="21">@color/theme_button_normal</item>
+
+		<item name="colorPrimary">@color/global_color_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_primary_dark</item>
+		<item name="colorAccent">@color/global_color_accent</item>
+		<item name="colorControlNormal">@color/global_color_control_normal</item>
+		<item name="colorControlActivated">@color/global_color_control_activated</item>
+		<item name="colorControlHighlight">@color/global_color_control_highlight</item>
+		<item name="colorSwitchThumbNormal">@color/global_color_switch_thumb_normal</item>
+
+		<item name="android:textColorPrimary">@color/global_text_primary</item>
+		<item name="android:textColorPrimaryInverse">@color/global_text_primary_inverse</item>
+		<item name="android:textColorPrimaryDisableOnly">@color/global_text_primary_disable_only</item>
+		<item name="android:textColorSecondary">@color/global_text_secondary</item>
+		<item name="android:textColorSecondaryInverse">@color/global_text_secondary_inverse</item>
+		<item name="android:textColorTertiary">@color/global_text_tertiary</item>
+		<item name="android:textColorTertiaryInverse">@color/global_text_tertiary_inverse</item>
+		<item name="android:textColorHint">@color/global_text_hint</item>
+		<item name="android:textColorHintInverse">@color/global_text_hint_inverse</item>
+		<item name="android:textColorHighlight">@color/global_text_highlight</item>m>
+		<item name="android:textColorLink">@color/global_text_link</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar" parent="@style/Theme.CityGuide">
+		<item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+		<item name="android:statusBarColor" tools:targetApi="21">@android:color/transparent</item>
+	</style>
+
+	<!-- blue theme -->
+	<style name="Theme.CityGuide.Blue" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_blue_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_blue_primary_dark</item>
+		<item name="colorAccent">@color/global_color_blue_accent</item>
+		<item name="colorControlActivated">@color/global_color_blue_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Blue.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Blue" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_blue_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_blue_primary_dark</item>
+		<item name="colorAccent">@color/global_color_blue_accent</item>
+		<item name="colorControlActivated">@color/global_color_blue_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Blue.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Blue.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_blue_accent</item>
+	</style>
+
+	<!-- brown theme -->
+	<style name="Theme.CityGuide.Brown" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_brown_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_brown_primary_dark</item>
+		<item name="colorAccent">@color/global_color_brown_accent</item>
+		<item name="colorControlActivated">@color/global_color_brown_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Brown.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Brown" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_brown_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_brown_primary_dark</item>
+		<item name="colorAccent">@color/global_color_brown_accent</item>
+		<item name="colorControlActivated">@color/global_color_brown_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Brown.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Brown.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_brown_accent</item>
+	</style>
+
+	<!-- carrot theme -->
+	<style name="Theme.CityGuide.Carrot" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_carrot_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_carrot_primary_dark</item>
+		<item name="colorAccent">@color/global_color_carrot_accent</item>
+		<item name="colorControlActivated">@color/global_color_carrot_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Carrot.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Carrot" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_carrot_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_carrot_primary_dark</item>
+		<item name="colorAccent">@color/global_color_carrot_accent</item>
+		<item name="colorControlActivated">@color/global_color_carrot_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Carrot.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Carrot.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_carrot_accent</item>
+	</style>
+
+	<!-- gray theme -->
+	<style name="Theme.CityGuide.Gray" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_gray_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_gray_primary_dark</item>
+		<item name="colorAccent">@color/global_color_gray_accent</item>
+		<item name="colorControlActivated">@color/global_color_gray_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Gray.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Gray" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_gray_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_gray_primary_dark</item>
+		<item name="colorAccent">@color/global_color_gray_accent</item>
+		<item name="colorControlActivated">@color/global_color_gray_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Gray.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Gray.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_gray_accent</item>
+	</style>
+
+	<!-- green theme -->
+	<style name="Theme.CityGuide.Green" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_green_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_green_primary_dark</item>
+		<item name="colorAccent">@color/global_color_green_accent</item>
+		<item name="colorControlActivated">@color/global_color_green_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Green.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Green" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_green_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_green_primary_dark</item>
+		<item name="colorAccent">@color/global_color_green_accent</item>
+		<item name="colorControlActivated">@color/global_color_green_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Green.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Green.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_green_accent</item>
+	</style>
+
+	<!-- indigo theme -->
+	<style name="Theme.CityGuide.Indigo" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_indigo_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_indigo_primary_dark</item>
+		<item name="colorAccent">@color/global_color_indigo_accent</item>
+		<item name="colorControlActivated">@color/global_color_indigo_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Indigo.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Indigo" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_indigo_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_indigo_primary_dark</item>
+		<item name="colorAccent">@color/global_color_indigo_accent</item>
+		<item name="colorControlActivated">@color/global_color_indigo_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Indigo.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Indigo.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_indigo_accent</item>
+	</style>
+
+	<!-- red theme -->
+	<style name="Theme.CityGuide.Red" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_red_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_red_primary_dark</item>
+		<item name="colorAccent">@color/global_color_red_accent</item>
+		<item name="colorControlActivated">@color/global_color_red_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Red.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Red" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_red_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_red_primary_dark</item>
+		<item name="colorAccent">@color/global_color_red_accent</item>
+		<item name="colorControlActivated">@color/global_color_red_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Red.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Red.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_red_accent</item>
+	</style>
+
+	<!-- yellow theme -->
+	<style name="Theme.CityGuide.Yellow" parent="@style/Theme.CityGuide">
+		<item name="colorPrimary">@color/global_color_yellow_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_yellow_primary_dark</item>
+		<item name="colorAccent">@color/global_color_yellow_accent</item>
+		<item name="colorControlActivated">@color/global_color_yellow_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Yellow.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.TransparentStatusBar.Yellow" parent="@style/Theme.CityGuide.TransparentStatusBar">
+		<item name="colorPrimary">@color/global_color_yellow_primary</item>
+		<item name="colorPrimaryDark">@color/global_color_yellow_primary_dark</item>
+		<item name="colorAccent">@color/global_color_yellow_accent</item>
+		<item name="colorControlActivated">@color/global_color_yellow_control_activated</item>
+		<item name="alertDialogTheme">@style/Theme.CityGuide.Yellow.Dialog.Alert</item>
+	</style>
+
+	<style name="Theme.CityGuide.Yellow.Dialog.Alert" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+		<item name="colorAccent">@color/global_color_yellow_accent</item>
+	</style>
+
+</resources>
