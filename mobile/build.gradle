@@ -1,0 +1,148 @@
+// Main build script for City Guide
+// 
+// Usage: gradlew assembleDebug           Build debug APK
+//        gradlew assembleRelease         Build production APK
+//        gradle wrapper                  Create Gradle Wrapper
+
+
+final VERSION_MAJOR = 1 // max two digits
+final VERSION_MINOR = 2 // max two digits
+final VERSION_PATCH = 1 // max two digits
+final VERSION_BUILD = 0 // max three digits
+
+
+apply plugin: 'com.android.application'
+
+dependencies
+        {
+            compile fileTree(dir: 'libs', include: ['*.jar'])
+            //compile project(':listviewanimations_lib-manipulation_3.1.0')
+            //compile project(':nineoldandroids-2.4.0')
+            compile 'com.android.support:support-v4:24.0.0-alpha1'
+            compile 'com.android.support:recyclerview-v7:24.0.0-alpha1'
+            compile 'com.android.support:appcompat-v7:24.0.0-alpha1'
+            compile 'com.android.support:cardview-v7:24.0.0-alpha1'
+            compile 'com.android.support:design:24.0.0-alpha1'
+            compile 'com.google.android.gms:play-services-base:8.4.0'
+            compile 'com.google.android.gms:play-services-analytics:8.4.0'
+            compile 'com.google.android.gms:play-services-ads:8.4.0'
+            compile 'com.google.android.gms:play-services-maps:8.4.0'
+            compile 'com.google.maps.android:android-maps-utils:0.4'
+            compile 'com.bignerdranch.android:recyclerview-multiselect:0.1'
+            compile 'com.j256.ormlite:ormlite-android:4.48'
+            compile 'com.melnykov:floatingactionbutton:1.2.0'
+            compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+            compile 'se.emilsjolander:StickyScrollViewItems:1.1.0'
+            compile 'com.jakewharton:butterknife:7.0.1'
+        }
+
+configurations {
+    // to avoid double inclusion of support libraries
+    all*.exclude group: 'com.nhaarman.listviewanimations', module: 'itemmanipulation'
+}
+
+
+
+android
+        {
+            compileSdkVersion 23
+            buildToolsVersion '23.0.3'
+
+            defaultConfig {
+                minSdkVersion 14
+                targetSdkVersion 22
+                multiDexEnabled true
+            }
+
+
+            signingConfigs
+                    {
+                        release
+                                {
+                                    // passwords and alias are obtained via askForPasswords task
+                                    storeFile file("../${project.property('keystore.file')}")
+                                    storePassword ""
+                                    keyAlias ""
+                                    keyPassword ""
+                                }
+                    }
+
+            buildTypes
+                    {
+                        debug
+                                {
+                                    buildConfigField "boolean", "LOGS", "true"
+
+                                    versionNameSuffix "-debug"
+                                }
+
+                        release
+                                {
+                                    buildConfigField "boolean", "LOGS", "false"
+
+                                    signingConfig signingConfigs.release
+                                    zipAlignEnabled true
+                                    minifyEnabled false
+                                    shrinkResources false
+                                    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                                }
+                    }
+
+            applicationVariants.all
+                    {
+                        variant ->
+                            if (variant.buildType.name.equals("release")) {
+                                variant.outputs.each
+                                        {
+                                            output ->
+                                                def outputFile = output.outputFile
+                                                def date = new Date()
+                                                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                                                    def fileName = outputFile.name.replace(
+                                                            "mobile",
+                                                            "cityguide-" + defaultConfig.versionName + "-" + defaultConfig.versionCode + "-" + date.format('yyyyMMdd'))
+                                                    output.outputFile = new File((String) outputFile.parent, (String) fileName)
+                                                }
+                                        }
+                            }
+                    }
+            compileOptions {
+            }
+        }
+
+
+task askForPasswords <<
+        {
+            def storePass
+            def keyAlias
+            def keyPass
+
+            def keystorePropertiesFile = new File((String) project.property("keystore.properties"))
+
+            if (project.hasProperty("keystore.properties") && keystorePropertiesFile.exists()) {
+                println "Loading keystore passwords from property file..."
+                Properties properties = new Properties()
+                properties.load(new FileInputStream(keystorePropertiesFile))
+                storePass = properties['keystore.store.password']
+                keyAlias = properties['keystore.key.alias']
+                keyPass = properties['keystore.key.password']
+            } else {
+                println "Getting keystore passwords from user input..."
+                storePass = new String(System.console().readPassword("\nStore password: "))
+                keyAlias = new String(System.console().readLine("Key alias: "))
+                keyPass = new String(System.console().readPassword("Key password: "))
+            }
+
+            android.signingConfigs.release.storePassword = storePass
+            android.signingConfigs.release.keyAlias = keyAlias
+            android.signingConfigs.release.keyPassword = keyPass
+        }
+
+
+tasks.whenTaskAdded
+        {
+            theTask ->
+                if (theTask.name.equals("packageRelease")) {
+                    theTask.dependsOn "askForPasswords"
+                }
+        }
