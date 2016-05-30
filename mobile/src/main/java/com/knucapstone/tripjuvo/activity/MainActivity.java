@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 	private BluetoothManager mBluetoothManager;
 	private BluetoothAdapter mBluetoothAdapter;
 
-
+	private int beaconMinorValue = 0;
 
 	Bundle sIState;
 	public static Intent newIntent(Context context) {
@@ -168,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			Log.i("MainActivity", "startRangingService");
 			Intent rangingIntent = new Intent(this, RecoBackgroundRangingService.class);
 			startService(rangingIntent);
+
+			saveBeaconMinorValue();
 
 			setupActionBar();
 			setupRecyclerView();
@@ -641,6 +643,34 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			setupActionBar();
 			setupRecyclerView();
 			setupDrawer(sIState);
+		}
+
+	}
+	public void saveBeaconMinorValue()
+	{
+		//비콘 인식시 실행되는 부분
+		try
+		{
+			Log.i("beaconbeacon", 1+"");
+			Intent intent = getIntent();
+			if(intent.hasExtra("BeaconMinor"))
+			{
+				beaconMinorValue = intent.getIntExtra("BeaconMinor", 0);
+				Log.i("beaconbeacon", beaconMinorValue+"");
+			}
+
+			Log.i("beaconbeacon", 1 + "");
+			if(beaconMinorValue == 16522)
+			{
+				Intent poi_datail_intent = PoiDetailActivity.newIntent(this, 1);
+				startActivity(poi_datail_intent);
+			}
+
+
+		}
+		catch(Exception e)
+		{
+			Log.i("beaconbeacon", e+"");
 		}
 	}
 }

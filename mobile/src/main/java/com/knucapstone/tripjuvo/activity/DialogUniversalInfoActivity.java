@@ -3,6 +3,7 @@ package com.knucapstone.tripjuvo.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -20,7 +21,7 @@ public class DialogUniversalInfoActivity extends Activity {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
 
-		int a;
+		final int a;
 		Intent intent = getIntent();
 		a = intent.getIntExtra("asdf", 0);
 		
@@ -30,10 +31,14 @@ public class DialogUniversalInfoActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				Intent intent = new Intent(DialogUniversalInfoActivity.this, MainActivity.class);
+				Log.i("BeaconMinor", a + "");
+				intent.putExtra("BeaconMinor", a);
 				startActivity(intent);
 				finish();
 			}
 		});
+
+
 		dialog.mDialogCANCELButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

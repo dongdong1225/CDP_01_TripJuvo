@@ -1,6 +1,7 @@
 package com.knucapstone.tripjuvo.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -36,13 +37,13 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	private ExampleAdapter adapter;
 	private String city_name;
 	private String picture_URL;
+	private Activity activity;
 
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expandable_list_view_travel);
-
 		Intent intent = new Intent();
 		intent = getIntent();
 		city_name = new String();
@@ -52,6 +53,9 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			city_name = intent.getStringExtra("CityName");
 			picture_URL = intent.getStringExtra("picture_URL");
 		}
+
+		activity = new Activity();
+
 
 		List<GroupItem> items = new ArrayList<GroupItem>();
 		items = fillData(items);
@@ -81,6 +85,8 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		listView.setDividerHeight(0);
 		listView.setAdapter(adapter);
 
+		activity = this;
+
 		// In order to show animations, we need to use a custom click handler
 		// for our ExpandableListView.
 		listView.setOnGroupClickListener(new OnGroupClickListener() {
@@ -97,6 +103,18 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 					listView.expandGroupWithAnimation(groupPosition);
 				}
 				return true;
+			}
+
+		});
+		listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+			@Override
+			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+				Intent intent = PoiDetailActivity.newIntent(activity,1);
+				Log.i("onChildClick",groupPosition + "  " +childPosition+ "  "+id);
+				startActivity(intent);
+				return false;
 			}
 
 		});
@@ -146,11 +164,12 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	}
 
 	private List<GroupItem> fillData(List<GroupItem> items) {
+
 		//category_id ->1 = where to eat, 2 = where to sleep, 3 = where to go
 		SQLiteDatabase db = openOrCreateDatabase(
 				"cityguide.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1 and city = '" +city_name+ "';", null);
+		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1 and city = '" + city_name + "';", null);
 		Cursor c_sleep= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 2 and city = '" +city_name+ "';",null);
 		Cursor c_go= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 3 and city = '" +city_name+ "';",null);
 
@@ -225,6 +244,8 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 
 		@Override
 		public long getChildId(int groupPosition, int childPosition) {
+
+
 			Log.i("ChildItemClick","asdf2");
 			return childPosition;
 		}
