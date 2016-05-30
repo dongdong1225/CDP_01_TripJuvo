@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/activity_main_drawer_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fitsSystemWindows="true">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<FrameLayout
+			android:id="@+id/container_drawer_content"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
+
+		<include layout="@layout/toolbar" />
+
+		<include layout="@layout/fab_find_path"/>
+		<include layout="@layout/fab_search" />
+
+	</FrameLayout>
+
+	<com.knucapstone.tripjuvo.view.ScrimInsetsFrameLayout
+		android:id="@+id/activity_main_drawer_scrim_layout"
+		android:layout_width="@dimen/drawer_width"
+		android:layout_height="match_parent"
+		android:layout_gravity="start"
+		android:background="@color/global_bg_front"
+		android:fitsSystemWindows="true"
+		app:insetForeground="@color/drawer_inset_foreground">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/activity_main_drawer_recycler"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scrollbars="vertical" />
+
+	</com.knucapstone.tripjuvo.view.ScrimInsetsFrameLayout>
+
+</android.support.v4.widget.DrawerLayout>

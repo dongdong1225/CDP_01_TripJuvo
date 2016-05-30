@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.knucapstone.tripjuvo"
+    android:installLocation="auto" >
+
+    <!-- versionCode, versionName, minSdkVersion, targetSdkVersion properties are set via Gradle script -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- allows the API to access Google web-based services -->
+
+
+    <!-- maps API needs OpenGL ES 2.0 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="false" />
+
+    <!--
+	You can easily change the main theme. Just modify application.android:theme attribute.
+	There are 8 main themes you can use:
+		Theme.CityGuide.Blue
+		Theme.CityGuide.Brown
+		Theme.CityGuide.Carrot
+		Theme.CityGuide.Gray
+		Theme.CityGuide.Green
+		Theme.CityGuide.Indigo
+		Theme.CityGuide.Red
+		Theme.CityGuide.Yellow
+	Don't forget to modify also MainActivity's theme.
+    -->
+    <application
+        android:name=".CityGuideApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.CityGuide.Indigo"
+        tools:replace="android:icon" >
+
+        <!--
+		Themes for MainActivity:
+			Theme.CityGuide.TransparentStatusBar.Blue
+			Theme.CityGuide.TransparentStatusBar.Brown
+			Theme.CityGuide.TransparentStatusBar.Carrot
+			Theme.CityGuide.TransparentStatusBar.Gray
+			Theme.CityGuide.TransparentStatusBar.Green
+			Theme.CityGuide.TransparentStatusBar.Indigo
+			Theme.CityGuide.TransparentStatusBar.Red
+			Theme.CityGuide.TransparentStatusBar.Yellow
+        -->
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.PoiDetailActivity"
+            android:label="@string/title_poi_detail"
+            android:launchMode="standard" />
+        <activity
+            android:name=".activity.MapActivity"
+            android:label="@string/title_map"
+            android:launchMode="standard" />
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
+            tools:replace="android:configChanges" />
+
+        <provider
+            android:name=".content.PoiSearchRecentSuggestionsProvider"
+            android:authorities="com.knucapstone.tripjuvo.content.PoiSearchRecentSuggestionsProvider"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/analytics_global_tracker" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_api_key" />
+
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".activity.SignupActivity"
+            android:label="@string/title_activity_signup" >
+        </activity>
+        <activity
+            android:name=".activity.FindPathActivity"
+            android:label="@string/title_activity_find_path" >
+        </activity>
+        <activity
+            android:name=".activity.ShowPathActivity"
+            android:label="@string/title_activity_show_path" >
+        </activity>
+    </application>
+
+</manifest>
