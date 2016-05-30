@@ -1,0 +1,5 @@
+int attr stuckShadowDrawable 0x7f010001
+int attr stuckShadowHeight 0x7f010000
+int[] styleable StickyScrollView { 0x7f010000, 0x7f010001 }
+int styleable StickyScrollView_stuckShadowDrawable 1
+int styleable StickyScrollView_stuckShadowHeight 0

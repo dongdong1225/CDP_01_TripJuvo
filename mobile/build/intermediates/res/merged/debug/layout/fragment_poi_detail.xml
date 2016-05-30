@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.knucapstone.tripjuvo.view.StatefulLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/fragment_poi_detail_stateful_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	app:progressLayout="@layout/placeholder_progress"
+	app:offlineLayout="@layout/placeholder_offline"
+	app:emptyLayout="@layout/placeholder_empty">
+
+	<com.knucapstone.tripjuvo.view.ObservableStickyScrollView
+		android:id="@+id/container_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true"
+		android:overScrollMode="never"
+		app:stuckShadowDrawable="@drawable/shape_shadow"
+		app:stuckShadowHeight="@dimen/toolbar_shadow_height">
+
+		<include layout="@layout/fragment_poi_detail_content" />
+
+	</com.knucapstone.tripjuvo.view.ObservableStickyScrollView>
+</com.knucapstone.tripjuvo.view.StatefulLayout>
+<!-- From: file:/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/Git/tripjuvo-2.1.2V/mobile/src/main/res/layout/fragment_poi_detail.xml -->

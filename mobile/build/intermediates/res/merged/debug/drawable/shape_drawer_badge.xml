@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="oval">
+
+	<solid android:color="@color/global_color_control_highlight" />
+
+</shape>
+<!-- From: file:/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/Git/tripjuvo-2.1.2V/mobile/src/main/res/drawable/shape_drawer_badge.xml -->

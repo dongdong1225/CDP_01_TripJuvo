@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/fragment_poi_detail_banner"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:descendantFocusability="blocksDescendants">
+
+	<!-- AdView is added here programmatically -->
+
+</LinearLayout>
+<!-- From: file:/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/Git/tripjuvo-2.1.2V/mobile/src/main/res/layout/fragment_poi_detail_content_banner.xml -->

@@ -1,0 +1,70 @@
+-injars /Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.1.0V/mobile/build/intermediates/multi-dex/debug/allclasses.jar
+-outjars /Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.1.0V/mobile/build/intermediates/multi-dex/debug/componentClasses.jar
+
+-libraryjars /Users/leedonghee/Library/Android/sdk/build-tools/23.0.3/lib/shrinkedAndroid.jar
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontpreverify
+-dontwarn
+-printconfiguration /Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.1.0V/mobile/build/intermediates/multi-dex/debug/components.flags
+
+
+-keep class com.knucapstone.tripjuvo.CityGuideApplication {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep class com.knucapstone.tripjuvo.activity.MainActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.PoiDetailActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.DragAndDropTravelActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.MapActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.ads.AdActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.content.PoiSearchRecentSuggestionsProvider {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.LoginActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.SignupActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.FindPathActivity {
+    <init>();
+}
+
+-keep class com.knucapstone.tripjuvo.activity.ShowPathActivity {
+    <init>();
+}
+
+-keep class com.google.android.gms.ads.purchase.InAppPurchaseActivity {
+    <init>();
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="TypographyDashes">
+	<string name="ga_logLevel">verbose</string> <!-- The local log level for Analytics -->
+	<integer name="ga_dispatchPeriod">30</integer> <!-- How often the dispatcher should fire -->
+	<bool name="ga_dryRun">false</bool> <!-- Treat events as test events and don't send to google -->
+	<string name="com.knucapstone.tripjuvo.activity.MainActivity">POI list</string> <!-- The screen name that will appear in reports -->
+	<string name="com.knucapstone.tripjuvo.activity.PoiDetailActivity">POI detail</string> <!-- The screen name that will appear in reports -->
+	<string name="com.knucapstone.tripjuvo.activity.MapActivity">Map</string> <!-- The screen name that will appear in reports -->
+</resources>
+<!-- From: file:/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/Git/tripjuvo-2.1.2V/mobile/src/main/res/xml/analytics_global_tracker.xml -->

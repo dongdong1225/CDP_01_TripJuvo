@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.knucapstone.tripjuvo.view.SelectorRelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/fragment_poi_list_item"
+	android:layout_width="match_parent"
+	android:layout_height="@dimen/fragment_poi_list_recycler_item_size"
+	android:minHeight="@dimen/fragment_poi_list_recycler_item_size"
+	android:listSelector="@drawable/selector_clickable_item_bg_inverse">
+
+	<ImageView
+		android:id="@+id/fragment_poi_list_item_image"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/fragment_poi_list_recycler_item_size"
+		android:adjustViewBounds="true"
+		android:scaleType="centerCrop" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/fragment_poi_list_recycler_item_panel_height"
+		android:layout_alignParentBottom="true"
+		android:gravity="center_vertical"
+		android:orientation="vertical"
+		android:paddingLeft="@dimen/global_spacing_xs"
+		android:paddingRight="@dimen/global_spacing_xxs"
+		android:background="@color/fragment_poi_list_recycler_item_panel_bg">
+
+		<TextView
+			android:id="@+id/fragment_poi_list_item_name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textAppearance="@style/TextAppearance.CityGuide.Body1.Inverse"
+			android:fontFamily="sans-serif"
+			android:maxLines="2"
+			android:ellipsize="end" />
+
+		<TextView
+			android:id="@+id/fragment_poi_list_item_distance"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:drawableLeft="@drawable/ic_grid_distance"
+			android:drawablePadding="@dimen/fragment_poi_list_recycler_item_icon_padding"
+			android:textAppearance="@style/TextAppearance.CityGuide.Body1.Inverse"
+			android:fontFamily="sans-serif"
+			android:maxLines="1"
+			android:ellipsize="end" />
+
+	</LinearLayout>
+</com.knucapstone.tripjuvo.view.SelectorRelativeLayout>
+<!-- From: file:/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/Git/tripjuvo-2.1.2V/mobile/src/main/res/layout/fragment_poi_list_item.xml -->

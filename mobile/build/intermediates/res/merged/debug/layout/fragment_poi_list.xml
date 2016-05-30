@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.knucapstone.tripjuvo.view.StatefulLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/fragment_poi_list_stateful_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	app:progressLayout="@layout/placeholder_progress"
+	app:offlineLayout="@layout/placeholder_offline"
+	app:emptyLayout="@layout/placeholder_empty">
+
+	<LinearLayout
+		android:id="@+id/container_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/fragment_poi_list_recycler"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:scrollbars="vertical"
+			android:background="@color/global_bg_front" />
+
+		<!-- AdView is added here programmatically -->
+
+	</LinearLayout>
+</com.knucapstone.tripjuvo.view.StatefulLayout>
+<!-- From: file:/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/Git/tripjuvo-2.1.2V/mobile/src/main/res/layout/fragment_poi_list.xml -->

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-core/4.48/e579bd2905d0399af5029aaaf9817d5fa0ca88a5/ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/ormlite-core-4.48-713e56eac0b0036b8facaafb3ac1b5d39a91075a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-31a8d8c0d8619eed5da717b791f393dc2e3e9d50.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-core/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="966cfe04469510bd5449c6f5f4cab9fcd48096f5">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-6d77866de8061244c08db4c86267e1212a8d4d17.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-93e0534797b97fe90642b0243639f615795a575d.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-core/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e262b48cdcadc3a94a4954bfd73a11af6a17f5e5">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-6d77866de8061244c08db4c86267e1212a8d4d17.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/se.emilsjolander/StickyScrollViewItems/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="b17ff4914892992c91e7b585ed74c1e782c5d1a1">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-1f25835515406de224a5a868dc2d63e99383905a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-b0aba8d1c1de25facf7518a6837fe878b006949b.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-manipulation/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6ef299dd2db59fad82e19d6878923e2fa38ec487">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-d8afd70fbd98753ae72b21b4ffa92765a3dbc982.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.bignerdranch.android/recyclerview-multiselect/0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0dac7326deb2420adf30eb098813f85c949ac6b7">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-c3573c831e9480f6c97be7db0177b301bb954d36.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.5-9cd1471863c9e1112b72e15acd564b3452168cb0.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-core/unspecified/jars/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="efec67655f6db90757faa37201efcee2a9ec3507">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/android-support-v4-41827562a5aa91a3eb7f767e0cf10d73a440b0bb.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-93e0534797b97fe90642b0243639f615795a575d.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.bignerdranch.android/recyclerview-multiselect/0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0dac7326deb2420adf30eb098813f85c949ac6b7">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-c3573c831e9480f6c97be7db0177b301bb954d36.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/library-2.4.0-0653b7bc2c0d1fd91cf9ac46301ae62b5d23e034.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-226a658ae5d610665ff5c9ee2263f372a26360cd.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-ad8c262fbf7898cb30c30b2542e3b176b221ce6a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-ff37d0592c0d53c73e8c73390f3b3f14fa6e3bc3.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-327792df52d311036638c466926b08c8b118cdd4.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-core/unspecified/jars/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-05581ff469b64a40b5a833d9bc4c2b4b2f226d5e.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-manipulation/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="af6a417a70b391f33032d1263ce01e8983cc0741">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-d8afd70fbd98753ae72b21b4ffa92765a3dbc982.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-ff37d0592c0d53c73e8c73390f3b3f14fa6e3bc3.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-android/4.48/afa06f539a4026c10b247386312aa67404b80a16/ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/ormlite-android-4.48-f810a24aa3806037221a9be22852defcb94fcebc.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/butterknife-7.0.1-2e2b691ab07853e9644a95572f8dd0fb67fd73f6.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-a7dce91c383438252a9dffc6fb4f785db6f770cf.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-core/unspecified/jars/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="efec67655f6db90757faa37201efcee2a9ec3507">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/android-support-v4-41827562a5aa91a3eb7f767e0cf10d73a440b0bb.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-android/4.48/afa06f539a4026c10b247386312aa67404b80a16/ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/ormlite-android-4.48-f810a24aa3806037221a9be22852defcb94fcebc.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-d1fc25a4b83af34ff484ff4ad00fae01f505d0ac.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.5-9cd1471863c9e1112b72e15acd564b3452168cb0.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.j256.ormlite/ormlite-core/4.48/e579bd2905d0399af5029aaaf9817d5fa0ca88a5/ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/ormlite-core-4.48-713e56eac0b0036b8facaafb3ac1b5d39a91075a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-e7d4cc8efc95d5f181d8b86fa77f2ef3b621b18a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-a7dce91c383438252a9dffc6fb4f785db6f770cf.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-33bbe09d6c20c76ec6242ce2ae942993bd76ad22.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4b1a7fac58cc85b115adee653a10b6300f90951a">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-24c64ee493549444ba4ef7c1ffcc79d13bdcf333.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-d1fc25a4b83af34ff484ff4ad00fae01f505d0ac.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-327792df52d311036638c466926b08c8b118cdd4.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/butterknife-7.0.1-2e2b691ab07853e9644a95572f8dd0fb67fd73f6.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.4/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4b1a7fac58cc85b115adee653a10b6300f90951a">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-24c64ee493549444ba4ef7c1ffcc79d13bdcf333.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-e7d4cc8efc95d5f181d8b86fa77f2ef3b621b18a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/tripjuvo-2.0.0V/ListViewAnimations-core/unspecified/jars/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-05581ff469b64a40b5a833d9bc4c2b4b2f226d5e.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-ad8c262fbf7898cb30c30b2542e3b176b221ce6a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-b0aba8d1c1de25facf7518a6837fe878b006949b.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/library-2.4.0-0653b7bc2c0d1fd91cf9ac46301ae62b5d23e034.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/se.emilsjolander/StickyScrollViewItems/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b17ff4914892992c91e7b585ed74c1e782c5d1a1">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-1f25835515406de224a5a868dc2d63e99383905a.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-33bbe09d6c20c76ec6242ce2ae942993bd76ad22.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-74ffc7ec8e7b37f7dc75e9ca546764fee29c246b.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-226a658ae5d610665ff5c9ee2263f372a26360cd.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-74ffc7ec8e7b37f7dc75e9ca546764fee29c246b.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-ab39ab8dedc80848219d05fed328e3d5b9c55bac.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-31a8d8c0d8619eed5da717b791f393dc2e3e9d50.jar" />
+    </item>
+    <item
+        jar="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/exploded-aar/com.melnykov/floatingactionbutton/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="65620ba5e576dcec2c86efa440b00d042a27383b">
+        <dex dex="/Users/leedonghee/Desktop/CapstoneDesign/TripJuvo/tripjuvo-1.0.8V/tripjuvo-2.0.0V/mobile/build/intermediates/pre-dexed/debug/classes-ab39ab8dedc80848219d05fed328e3d5b9c55bac.jar" />
+    </item>
+
+</items>

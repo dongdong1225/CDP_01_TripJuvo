@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/bphillips/src/android/recyclerview-multiselect/recyclerview-multiselect/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="touch_raise">12dp</dimen>
+    <!-- From: file:/Users/bphillips/src/android/recyclerview-multiselect/recyclerview-multiselect/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">RecyclerView Choice Mode</string>
+</resources>
