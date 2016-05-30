@@ -151,9 +151,9 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		SQLiteDatabase db = openOrCreateDatabase(
 				"cityguide.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 
-		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1", null);
-		Cursor c_sleep= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 2",null);
-		Cursor c_go= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 3",null);
+		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1 and city = '" +city_name+ "';", null);
+		Cursor c_sleep= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 2 and city = '" +city_name+ "';",null);
+		Cursor c_go= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 3 and city = '" +city_name+ "';",null);
 
 		c_eat.moveToFirst();
 		c_sleep.moveToFirst();
