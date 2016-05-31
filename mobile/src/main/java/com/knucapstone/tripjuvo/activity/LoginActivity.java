@@ -1,6 +1,7 @@
 package com.knucapstone.tripjuvo.activity;
 
 import android.app.ProgressDialog;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -71,7 +72,11 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
-
+        SQLiteDatabase db = openOrCreateDatabase("tripjuvo.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS logins " +
+                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, checks INTEGER, account TEXT, age INTEGER, " +
+                "vehicle TEXT);");
+        db.execSQL("INSERT into logins(checks, account, age, vehicle) values(1,'dongdong1225',25 , 'train');");
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
