@@ -22,6 +22,7 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.knucapstone.tripjuvo.database.ExpandableData;
 import com.knucapstone.tripjuvo.R;
 import com.knucapstone.tripjuvo.font.RobotoTextView;
 import com.knucapstone.tripjuvo.util.ImageUtil;

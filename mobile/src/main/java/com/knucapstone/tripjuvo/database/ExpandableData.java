@@ -1,4 +1,4 @@
-package com.knucapstone.tripjuvo.activity;
+package com.knucapstone.tripjuvo.database;
 
 /**
  * Created by aassw on 2016-05-31.
@@ -7,7 +7,7 @@ public class ExpandableData {
     private int poi_id;
     private int position;
     private int childPosition;
-    ExpandableData(int id, int position, int childPosition){
+   public ExpandableData(int id, int position, int childPosition){
         setPoi_id(id); setPosition(position); setChildPosition(childPosition);
     }
 
