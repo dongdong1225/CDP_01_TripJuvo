@@ -169,11 +169,13 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			Intent rangingIntent = new Intent(this, RecoBackgroundRangingService.class);
 			startService(rangingIntent);
 
-			saveBeaconMinorValue();
+
 
 			setupActionBar();
 			setupRecyclerView();
 			setupDrawer(savedInstanceState);
+
+			saveBeaconMinorValue();
 	}
 
 	@Override
