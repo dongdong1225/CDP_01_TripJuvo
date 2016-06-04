@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.knucapstone.tripjuvo"
-    android:installLocation="auto">
+    android:installLocation="auto" >
 
     <!-- versionCode, versionName, minSdkVersion, targetSdkVersion properties are set via Gradle script -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,8 +18,8 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
 
     <!-- allows the API to access Google web-based services -->
 
@@ -58,7 +59,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.CityGuide.Indigo"
-        tools:replace="android:icon">
+        tools:replace="android:icon" >
 
         <!--
 		Themes for MainActivity:
@@ -76,7 +77,7 @@
             android:name=".activity.SplashScreensActivity"
             android:label="@string/app_name"
             android:launchMode="standard"
-            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo">
+            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -86,25 +87,32 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="standard"
-            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo"></activity>
-        <activity android:name=".activity.ExpandableListViewActivity"></activity>
+            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo" >
+        </activity>
+        <activity android:name=".activity.ExpandableListViewActivity" >
+        </activity>
         <activity
             android:name=".activity.ExpandableTravelListViewActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" >
+        </activity>
         <activity
             android:name=".activity.PoiDetailActivity"
             android:label="@string/title_poi_detail"
             android:launchMode="standard" />
         <activity
             android:name=".activity.DragAndDropTravelActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" >
+        </activity>
         <activity
             android:name=".activity.WizardTravelActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" >
+        </activity>
         <activity
             android:name=".activity.DialogUniversalInfoActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
             android:showOnLockScreen="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
+            >
+        </activity>
         <activity
             android:name=".activity.MapActivity"
             android:label="@string/title_map"
@@ -144,7 +152,7 @@
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
@@ -154,21 +162,21 @@
 
         <service
             android:name=".gcmService.MyGcmListenerService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service
             android:name=".gcmService.MyInstanceIDListenerService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <service
             android:name=".gcmService.RegistrationIntentService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
@@ -177,18 +185,17 @@
         <service
             android:name=".beacon.RecoBackgroundMonitoringService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" >
+        </service>
         <service
             android:name=".beacon.RecoBackgroundRangingService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" >
+        </service>
 
         <activity
             android:name=".activity.beaconTestActivity"
-            android:label="@string/title_activity_beacon_test"></activity>
-        <activity android:name=".activity.CityActivity">
-
-
+            android:label="@string/title_activity_beacon_test" >
         </activity>
     </application>
 

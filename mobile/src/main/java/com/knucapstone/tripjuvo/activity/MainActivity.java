@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 	private BluetoothManager mBluetoothManager;
 	private BluetoothAdapter mBluetoothAdapter;
 
-	private int beaconMinorValue = 0;
+	private int beaconPoi = 0;
 
 	Bundle sIState;
 	public static Intent newIntent(Context context) {
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			setupDrawer(savedInstanceState);
 
 			saveBeaconMinorValue();
-			showGroupCity();
+			//showGroupCity();
 	}
 
 	@Override
@@ -583,12 +583,9 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 		}
 
 		protected void onPostExecute(String str) {
-			Log.i("PHP", "PHP");
 			try {
-				Log.i("COUNT", "readS1");
 				JSONObject root = new JSONObject(str);
 				JSONArray ja = root.getJSONArray("results"); //get the JSONArray which I made in the php file. the name of JSONArray is "results"
-				Log.i("COUNT", "readS2");
 				SQLiteDatabase db = SQLiteDatabase.openDatabase(DATABASE_PATH + DATABASE_NAME, null, DATABASE_VERSION);
 				int cnt = ja.length();
 				String update_sql = "UPDATE sqlite_sequence set seq = "+Integer.toString(cnt)+" where name = 'pois';";
@@ -596,7 +593,6 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 				for (int i = 0; i < ja.length(); i++) {
 					JSONObject jo = ja.getJSONObject(i);
 					String id = jo.getString("id");
-					Log.i("PHP", id);
 					String category_id = jo.getString("category_id");
 					String name = jo.getString("name");
 					String intro = jo.getString("intro");
@@ -654,20 +650,14 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 		{
 			Log.i("beaconbeacon", 1+"");
 			Intent intent = getIntent();
-			if(intent.hasExtra("BeaconMinor"))
+			if(intent.hasExtra("BeaconPoi"))
 			{
-				beaconMinorValue = intent.getIntExtra("BeaconMinor", 0);
-				Log.i("beaconbeacon", beaconMinorValue+"");
+				beaconPoi = intent.getIntExtra("BeaconPoi", 0);
+				Log.i("beaconbeacon", beaconPoi+"");
 			}
 
-			Log.i("beaconbeacon", 1 + "");
-			if(beaconMinorValue == 16522)
-			{
-				Intent poi_datail_intent = PoiDetailActivity.newIntent(this, 1);
-				startActivity(poi_datail_intent);
-			}
-
-
+			Intent poi_datail_intent = PoiDetailActivity.newIntent(this, beaconPoi);
+			startActivity(poi_datail_intent);
 		}
 		catch(Exception e)
 		{
