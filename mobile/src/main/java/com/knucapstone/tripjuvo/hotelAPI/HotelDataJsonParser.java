@@ -89,25 +89,19 @@ public class HotelDataJsonParser{
         @Override
         protected String doInBackground(String... urls) {
             StringBuilder jsonHtml = new StringBuilder();
-            Log.i("PHPLOG","0");
             try{
                 // 연결 url 설정
                 URL url = new URL(urls[0]);
-                Log.i("PHPLOG","1");
                 // 커넥션 객체 생성
                 HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-                Log.i("PHPLOG","2");
                 // 연결되었으면.
                 if(conn != null){
                     conn.setConnectTimeout(10000);
                     conn.setUseCaches(false);
-                    Log.i("PHPLOG", "3");
                     // 연결되었음 코드가 리턴되면.
                     if(conn.getResponseCode() == HttpURLConnection.HTTP_OK){
-                        Log.i("PHPLOG","3.5");
                         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
                         for(;;){
-                            Log.i("PHPLOG","4");
                             // 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
                             String line = br.readLine();
                             if(line == null) break;
@@ -116,7 +110,6 @@ public class HotelDataJsonParser{
                         }
                         br.close();
                     }
-                    Log.i("PHPLOG","5");
                     conn.disconnect();
                 }
             } catch(Exception ex){
