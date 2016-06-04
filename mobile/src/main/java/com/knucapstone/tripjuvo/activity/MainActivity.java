@@ -169,19 +169,12 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			Intent rangingIntent = new Intent(this, RecoBackgroundRangingService.class);
 			startService(rangingIntent);
 
-
-
-
-
-
-
-
 			setupActionBar();
 			setupRecyclerView();
 			setupDrawer(savedInstanceState);
 
 			saveBeaconMinorValue();
-		showGroupCity();
+			showGroupCity();
 	}
 
 	@Override
@@ -695,7 +688,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			Log.i("beaconbeacon", e + "");
 		}
 
-		Fragment fragment = PoiListFragment.newInstance(mCategoryList.get(0).getId());
+		Fragment fragment = PoiListFragment.newInstance(PoiListFragment.CATEGORY_ID_ALL);
 		Bundle bundle = new Bundle();
 		bundle.putString("ThisCity", cityName);
 		fragment.setArguments(bundle);

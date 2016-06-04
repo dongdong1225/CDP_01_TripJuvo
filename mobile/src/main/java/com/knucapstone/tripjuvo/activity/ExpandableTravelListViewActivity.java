@@ -114,15 +114,16 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 				int poi_id = 0;
 				for(int i =0; i< expandableDatalist.size();i++) {
-					if (expandableDatalist.get(i).getPosition() == groupPosition &&
-							expandableDatalist.get(i).getChildPosition() == childPosition)
+					if (expandableDatalist.get(i).getPosition() == groupPosition && expandableDatalist.get(i).getChildPosition() == childPosition)
 						poi_id = expandableDatalist.get(i).getPoi_id();
 				}
 				Intent intent;
+				Log.i("poiID",""+poi_id);
 				if(poi_id == childAdd)
 				{
 					//intent = PoiDetailActivity.newIntent(activity, 0);
-					intent = new Intent(activity, MainActivity.class);
+					intent = new Intent(activity, CityActivity.class);
+					intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					intent.putExtra("ThisCity", city_name);
 					startActivity(intent);
 				}
@@ -218,6 +219,9 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		child.title = "+ ADD";
 		child.poi_id = childAdd;
 		item.items.add(child);
+		ExpandableData ExpD = new ExpandableData(child.poi_id,0,cnt_go);
+		expandableDatalist.add(ExpD);
+		cnt_go++;
 
 		items.add(item);
 
@@ -229,7 +233,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			child.title = c_sleep.getString(2);
 			child.poi_id = c_sleep.getInt(0);
 			item.items.add(child);
-			ExpandableData ExpD = new ExpandableData(c_sleep.getInt(0),1,cnt_sleep);
+			ExpD = new ExpandableData(c_sleep.getInt(0),1,cnt_sleep);
 			expandableDatalist.add(ExpD);
 			cnt_sleep++;
 			if(c_sleep.isLast())
@@ -251,7 +255,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			child.title = c_eat.getString(2);
 			child.poi_id = c_eat.getInt(0);
 			item.items.add(child);
-			ExpandableData ExpD = new ExpandableData(c_eat.getInt(0),2,cnt_eat);
+			ExpD = new ExpandableData(c_eat.getInt(0),2,cnt_eat);
 			expandableDatalist.add(ExpD);
 			cnt_eat++;
 			if(c_eat.isLast())

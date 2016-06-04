@@ -91,6 +91,28 @@ public class PoiDAO extends DAO
 		}
 		return list;
 	}
+
+	public static List<PoiModel> readByCity(String city, long skip, long take) throws SQLException
+	{
+		Dao<PoiModel, Long> dao = getDao();
+		List<PoiModel> list;
+		if(skip==-1L && take==-1L)
+		{
+			QueryBuilder<PoiModel, Long> queryBuilder = dao.queryBuilder();
+			queryBuilder.where().eq(PoiModel.COLUMN_CITY, city);
+			queryBuilder.orderBy(PoiModel.COLUMN_CITY, true);
+			list = dao.query(queryBuilder.prepare());
+		}
+		else
+		{
+			QueryBuilder<PoiModel, Long> queryBuilder = dao.queryBuilder();
+			queryBuilder.where().eq(PoiModel.COLUMN_CITY, city);
+			queryBuilder.orderBy(PoiModel.COLUMN_CITY, true);
+			queryBuilder.offset(skip).limit(take);
+			list = dao.query(queryBuilder.prepare());
+		}
+		return list;
+	}
 	
 	
 	public static int update(PoiModel poi) throws SQLException

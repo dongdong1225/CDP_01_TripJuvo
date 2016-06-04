@@ -58,6 +58,7 @@ import com.knucapstone.tripjuvo.database.data.Data;
 import com.knucapstone.tripjuvo.database.model.PoiModel;
 import com.knucapstone.tripjuvo.database.query.PoiReadAllQuery;
 import com.knucapstone.tripjuvo.database.query.PoiReadByCategoryQuery;
+import com.knucapstone.tripjuvo.database.query.PoiReadByCity;
 import com.knucapstone.tripjuvo.database.query.PoiReadFavoritesQuery;
 import com.knucapstone.tripjuvo.database.query.PoiSearchQuery;
 import com.knucapstone.tripjuvo.database.query.Query;
@@ -95,6 +96,8 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 	public static final long CATEGORY_ID_FAVORITES = -2L;
 	public static final long CATEGORY_ID_SEARCH = -3L;
 	public static final long CATEGORY_ID_findPath = -4;
+	public static final long SEARCH_BY_CITY = -5;
+	//public boolean searchByCity = false;
 
 	private static final String ARGUMENT_CATEGORY_ID = "category_id";
 	private static final String ARGUMENT_SEARCH_QUERY = "search_query";
@@ -121,6 +124,7 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 	private phpDown task;
 	private ArrayList<Spot> spotArrayList;
 	private AdjMatrix adjMatrix;
+	private static String mCity;
 
 	private int beaconMinorValue = 0;
 
@@ -131,6 +135,19 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 		PoiListFragment fragment = new PoiListFragment();
 
 		// arguments
+		Bundle arguments = new Bundle();
+		arguments.putLong(ARGUMENT_CATEGORY_ID, categoryId);
+		fragment.setArguments(arguments);
+
+		return fragment;
+	}
+	public static PoiListFragment newInstance(long categoryId,String city)
+	{
+		Log.i("CityActivity",city);
+		PoiListFragment fragment = new PoiListFragment();
+
+		// arguments
+		mCity = city;
 		Bundle arguments = new Bundle();
 		arguments.putLong(ARGUMENT_CATEGORY_ID, categoryId);
 		fragment.setArguments(arguments);
@@ -191,7 +208,6 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 
 			}
 		}
-
 		// handle fragment arguments
 		Bundle arguments = getArguments();
 		if(arguments != null)
@@ -550,6 +566,18 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 						mPoiList.add(poi);
 					}
 				}
+				else if (task.getQuery().getClass().equals(PoiReadByCity.class)) {
+					Logcat.d("PoiReadByCityQuery");
+
+					// get data
+					Data<List<PoiModel>> poiReadByCityData = (Data<List<PoiModel>>) data;
+					List<PoiModel> poiList = poiReadByCityData.getDataObject();
+					Iterator<PoiModel> iterator = poiList.iterator();
+					while (iterator.hasNext()) {
+						PoiModel poi = iterator.next();
+						mPoiList.add(poi);
+					}
+				}
 
 				// calculate distances and sort
 				calculatePoiDistances();
@@ -609,7 +637,10 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 				{
 					Logcat.d("PoiReadByCategoryQuery / exception " + exception.getClass().getSimpleName() + " / " + exception.getMessage());
 				}
-
+				else if(task.getQuery().getClass().equals(PoiReadByCity.class))
+				{
+					Logcat.d("PoiReadByCityQuery / exception " + exception.getClass().getSimpleName() + " / " + exception.getMessage());
+				}
 				// hide progress
 				showLazyLoadingProgress(false);
 				if(mPoiList!=null && !mPoiList.isEmpty()) mStatefulLayout.showContent();
@@ -649,11 +680,9 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 	@Override
 	public void onGeolocationFail(Geolocation geolocation)
 	{
-		runTaskCallback(new Runnable()
-		{
-			public void run()
-			{
-				if(mRootView == null) return; // view was destroyed
+		runTaskCallback(new Runnable() {
+			public void run() {
+				if (mRootView == null) return; // view was destroyed
 
 				Logcat.d("onGeolocationFail()");
 			}
@@ -685,6 +714,7 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 			mStatefulLayout.showProgress();
 
 			// run async task
+			Log.i("City Load Data","Cat ID : "+ mCategoryId);
 			Query query;
 			if(mCategoryId==CATEGORY_ID_ALL)
 			{
@@ -697,6 +727,11 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 			else if(mCategoryId==CATEGORY_ID_SEARCH)
 			{
 				query = new PoiSearchQuery(mSearchQuery, 0, LAZY_LOADING_TAKE);
+			}
+			else if(mCategoryId==SEARCH_BY_CITY)
+			{
+				//Log.i("City Load Data","start : "+getArguments().getString("ThisCity"));
+				query = new PoiReadByCity(mCity, 0, LAZY_LOADING_TAKE);
 			}
 			else
 			{
@@ -728,6 +763,11 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 		else if(mCategoryId==CATEGORY_ID_SEARCH)
 		{
 			query = new PoiSearchQuery(mSearchQuery, mPoiList.size(), LAZY_LOADING_TAKE);
+		}
+		else if(mCategoryId==SEARCH_BY_CITY)
+		{
+			Log.i("City Load Data","Lazy Loading");
+			query = new PoiReadByCity(mCity, mPoiList.size(), LAZY_LOADING_TAKE);
 		}
 		else
 		{
