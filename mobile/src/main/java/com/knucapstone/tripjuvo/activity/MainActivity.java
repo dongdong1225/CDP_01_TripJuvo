@@ -171,11 +171,17 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 
 
 
+
+
+
+
+
 			setupActionBar();
 			setupRecyclerView();
 			setupDrawer(savedInstanceState);
 
 			saveBeaconMinorValue();
+		showGroupCity();
 	}
 
 	@Override
@@ -674,5 +680,33 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 		{
 			Log.i("beaconbeacon", e+"");
 		}
+	}
+
+	public String showGroupCity() {
+		String cityName = "";
+		try {
+			Log.i("showGroupCity", 1 + "");
+			Intent intent = getIntent();
+			if (intent.hasExtra("ThisCity")) {
+				cityName = intent.getStringExtra("ThisCity");
+				Log.i("showGroupCity", cityName);
+			}
+		} catch (Exception e) {
+			Log.i("beaconbeacon", e + "");
+		}
+
+		Fragment fragment = PoiListFragment.newInstance(mCategoryList.get(0).getId());
+		Bundle bundle = new Bundle();
+		bundle.putString("ThisCity", cityName);
+		fragment.setArguments(bundle);
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		fragmentManager.beginTransaction().replace(R.id.container_drawer_content, fragment).commitAllowingStateLoss();
+
+		mDrawerAdapter.setSelected(mDrawerAdapter.getRecyclerPositionByCategory(0));
+		setTitle(mCategoryList.get(0).getName());
+		mDrawerLayout.closeDrawer(mDrawerScrimInsetsFrameLayout);
+
+
+		return cityName;
 	}
 }

@@ -121,7 +121,10 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 				Intent intent;
 				if(poi_id == childAdd)
 				{
-					intent = PoiDetailActivity.newIntent(activity, 0);
+					//intent = PoiDetailActivity.newIntent(activity, 0);
+					intent = new Intent(activity, MainActivity.class);
+					intent.putExtra("ThisCity", city_name);
+					startActivity(intent);
 				}
 				else {
 					intent = PoiDetailActivity.newIntent(activity, poi_id);
