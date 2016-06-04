@@ -654,10 +654,10 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			{
 				beaconPoi = intent.getIntExtra("BeaconPoi", 0);
 				Log.i("beaconbeacon", beaconPoi+"");
-			}
 
-			Intent poi_datail_intent = PoiDetailActivity.newIntent(this, beaconPoi);
-			startActivity(poi_datail_intent);
+				Intent poi_datail_intent = PoiDetailActivity.newIntent(this, beaconPoi);
+				startActivity(poi_datail_intent);
+			}
 		}
 		catch(Exception e)
 		{

@@ -111,7 +111,6 @@ public class DialogUniversalInfoActivity extends Activity {
 				// 연결되었으면.
 				if (conn != null) {
 					conn.setConnectTimeout(10000);
-					conn.setUseCaches(false);
 					// 연결되었음 코드가 리턴되면.
 					if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
 						BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
