@@ -193,10 +193,7 @@
             android:exported="true" >
         </service>
 
-        <activity
-            android:name=".activity.beaconTestActivity"
-            android:label="@string/title_activity_beacon_test" >
-        </activity>
+        <activity android:name=".activity.CityActivity" />
     </application>
 
 </manifest>
