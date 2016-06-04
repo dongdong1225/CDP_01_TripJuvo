@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<item
+		android:id="@+id/menu_fragment_map_layers"
+		android:title="@string/menu_fragment_map_layers"
+		android:icon="@drawable/ic_menu_layers"
+		android:orderInCategory="1"
+		app:showAsAction="always">
+		<menu>
+			<item
+				android:id="@+id/menu_fragment_map_layers_normal"
+				android:title="@string/menu_fragment_map_layers_normal"
+				android:icon="@null"
+				android:orderInCategory="1" />
+			<item
+				android:id="@+id/menu_fragment_map_layers_satellite"
+				android:title="@string/menu_fragment_map_layers_satellite"
+				android:icon="@null"
+				android:orderInCategory="2" />
+			<item
+				android:id="@+id/menu_fragment_map_layers_hybrid"
+				android:title="@string/menu_fragment_map_layers_hybrid"
+				android:icon="@null"
+				android:orderInCategory="3" />
+			<item
+				android:id="@+id/menu_fragment_map_layers_terrain"
+				android:title="@string/menu_fragment_map_layers_terrain"
+				android:icon="@null"
+				android:orderInCategory="4" />
+		</menu>
+	</item>
+
+</menu>

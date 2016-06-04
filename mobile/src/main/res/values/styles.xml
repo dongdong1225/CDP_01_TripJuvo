@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="actionBarStyle">@style/ActionBarStyle</item>
+		<item name="colorPrimary">@color/main_color_500</item>
+		<item name="colorPrimaryDark">@color/main_color_700</item>
+	</style>
+
+	<style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="actionBarStyle">@style/ActionBarStyle</item>
+		<item name="windowActionBar">false</item>
+
+		<item name="colorPrimary">@color/main_color_500</item>
+		<item name="colorPrimaryDark">@color/main_color_700</item>
+	</style>
+	<style name="AppTheme.Title" parent="Theme.AppCompat">
+		<item name="android:textColorPrimary">@android:color/white</item>
+	</style>
+	<!-- Default application theme ends here -->
+
+	<!-- ActionBar related themes -->
+	<style name="AppTabsTheme" parent="AppTheme">
+		<item name="actionBarStyle">@style/ActionBarStyle</item>
+		<item name="windowActionBar">false</item>
+		<item name="colorPrimary">@color/main_color_500</item>
+		<item name="colorPrimaryDark">@color/main_color_700</item>
+	</style>
+
+	<style name="ActionBarStyle" parent="@style/Widget.AppCompat.Light.ActionBar">
+		<item name="background">@color/main_color_500</item>
+		<item name="titleTextStyle">@style/ActionBarStyle.TitleTextStyle</item>
+	</style>
+
+	<style name="ActionBarStyle.TitleTextStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+		<item name="android:textColor">@android:color/white</item>
+		<item name="android:textColorPrimary">@android:color/white</item>
+	</style>
+
+	<style name="AppTheme.Overlay" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+		<item name="android:windowBackground">@null</item>
+		<item name="android:actionBarStyle">@style/ActionBarOverlay.Transparent</item>
+		<item name="android:windowActionBarOverlay">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
+
+	<style name="ActionBarOverlay.Transparent" parent="@android:Widget.ActionBar">
+		<item name="android:background">@null</item>
+		<item name="android:displayOptions">homeAsUp|showHome|showTitle</item>
+		<item name="android:titleTextStyle">@style/ActionBarOverlay.Transparent.TitleTextStyle</item>
+	</style>
+
+	<style name="ActionBarOverlay.Transparent.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="AppTheme.NoShadow" parent="@style/AppTheme">
+		<item name="android:windowContentOverlay">@null</item>
+		<item name="android:actionBarStyle">@style/ActionBarStyle.NoShadow</item>
+	</style>
+
+	<style name="ActionBarStyle.NoShadow" parent="@style/ActionBarStyle">
+		<item name="android:background">@color/main_color_600</item>
+		<item name="android:titleTextStyle">@style/ActionBarStyle.TitleTextStyle</item>
+	</style>
+	<!-- ActionBar related themes end here -->
+
+
+	<style name="Widget.CityGuide.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+		<item name="android:background">?attr/colorPrimary</item>
+		<item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+		<item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display4" parent="@style/TextAppearance.AppCompat.Display4">
+		<item name="android:textSize">@dimen/global_text_size_display_4</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display3" parent="@style/TextAppearance.AppCompat.Display3">
+		<item name="android:textSize">@dimen/global_text_size_display_3</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display2" parent="@style/TextAppearance.AppCompat.Display2">
+		<item name="android:textSize">@dimen/global_text_size_display_2</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display1" parent="@style/TextAppearance.AppCompat.Display1">
+		<item name="android:textSize">@dimen/global_text_size_display_1</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Headline" parent="@style/TextAppearance.AppCompat.Headline">
+		<item name="android:textSize">@dimen/global_text_size_headline</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Title" parent="@style/TextAppearance.AppCompat.Title">
+		<item name="android:textSize">@dimen/global_text_size_title</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Subhead" parent="@style/TextAppearance.AppCompat.Subhead">
+		<item name="android:textSize">@dimen/global_text_size_subhead</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Body2" parent="@style/TextAppearance.AppCompat.Body2">
+		<item name="android:textSize">@dimen/global_text_size_body_2</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Body1" parent="@style/TextAppearance.AppCompat.Body1">
+		<item name="android:textSize">@dimen/global_text_size_body_1</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Caption" parent="@style/TextAppearance.AppCompat.Caption">
+		<item name="android:textSize">@dimen/global_text_size_caption</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Button" parent="@style/TextAppearance.AppCompat.Button">
+		<item name="android:textSize">@dimen/global_text_size_button</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="textAllCaps">true</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Menu" parent="@style/TextAppearance.AppCompat.Menu">
+		<item name="android:textSize">@dimen/global_text_size_menu</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Placeholder" parent="@style/TextAppearance.AppCompat.Body1">
+		<item name="android:textSize">@dimen/global_text_size_placeholder</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display4.Inverse" parent="@style/TextAppearance.CityGuide.Display4">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display3.Inverse" parent="@style/TextAppearance.CityGuide.Display3">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display2.Inverse" parent="@style/TextAppearance.CityGuide.Display2">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Display1.Inverse" parent="@style/TextAppearance.CityGuide.Display1">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Headline.Inverse" parent="@style/TextAppearance.CityGuide.Headline">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Title.Inverse" parent="@style/TextAppearance.CityGuide.Title">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Subhead.Inverse" parent="@style/TextAppearance.CityGuide.Subhead">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Body2.Inverse" parent="@style/TextAppearance.CityGuide.Body2">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Body1.Inverse" parent="@style/TextAppearance.CityGuide.Body1">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Caption.Inverse" parent="@style/TextAppearance.CityGuide.Caption">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Button.Inverse" parent="@style/TextAppearance.CityGuide.Button">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.CityGuide.Menu.Inverse" parent="@style/TextAppearance.CityGuide.Menu">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+		<item name="colorAccent">@color/white</item>
+		<item name="android:textColorPrimary">@color/iron</item>
+		<item name="android:background">@color/primary</item>
+	</style>
+
+	<style name="DividerStyle">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">1dp</item>
+		<item name="android:layout_marginTop">24dp</item>
+		<item name="android:layout_marginBottom">24dp</item>
+		<item name="android:layout_marginLeft">8dp</item>
+		<item name="android:layout_marginRight">8dp</item>
+		<item name="android:background">@color/divider_color</item>
+		<!-- Supports API Level 17+ -->
+		<!-- <item name="android:layout_marginStart">8dp</item> -->
+		<!-- Supports API Level 17+ -->
+		<!-- <item name="android:layout_marginEnd">8dp</item> -->
+	</style>
+
+	<!-- Ripple related styles -->
+	<style name="RippleStyle">
+		<item name="rippleOverlay">true</item>
+		<item name="rippleColor">@color/main_color_grey_300</item>
+		<item name="rippleAlpha">0.7</item>
+		<item name="rippleDimension">45dp</item>
+		<item name="rippleHover">true</item>
+		<item name="rippleDuration">200</item>
+		<item name="rippleFadeDuration">50</item>
+		<item name="rippleBackground">@android:color/transparent</item>
+		<item name="rippleDelayClick">true</item>
+		<item name="ripplePersistent">false</item>
+		<item name="rippleInAdapter">false</item>
+	</style>
+	<!-- Ripple related styles end here -->
+
+	<!-- CheckBox related styles -->
+	<style name="CheckBoxStyleDark" parent="@android:style/Widget.CompoundButton.CheckBox">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textColor">@color/main_color_grey_800</item>
+	</style>
+
+	<style name="CheckBoxStyle.Dark" parent="@style/CheckBoxStyleDark">
+		<item name="android:button">@drawable/checkbox_selector_dark</item>
+		<item name="android:textColor">@color/main_color_grey_200</item>
+	</style>
+
+	<style name="CheckBoxStyle.Light" parent="@style/CheckBoxStyleDark">
+		<item name="android:button">@drawable/checkbox_selector_light</item>
+	</style>
+	<!-- CheckBox related styles end here -->
+
+	<!-- Dialog related styles end here -->
+	<style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:windowIsFloating">false</item>
+		<item name="android:windowNoTitle">true</item>
+	</style>
+
+</resources>

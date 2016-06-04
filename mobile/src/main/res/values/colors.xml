@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="global_color_primary">#9e9e9e</color>
+	<color name="global_color_primary_light">#f5f5f5</color>
+	<color name="global_color_primary_dark">#616161</color>
+	<color name="global_color_accent">#9e9e9e</color>
+	<color name="global_color_control_normal">#8a000000</color>
+	<color name="global_color_control_activated">#9e9e9e</color>
+	<color name="global_color_control_highlight">#40000000</color>
+	<color name="global_color_switch_thumb_normal">#f1f1f1</color>
+	<color name="global_color_divider">#e0e0e0</color>
+	<color name="global_color_selectable">#ededed</color>
+	<color name="global_color_clickable_inverse">#aaffffff</color>
+
+	<color name="global_color_blue_primary">#03a9f4</color>
+	<color name="global_color_blue_primary_light">#b3e5fc</color>
+	<color name="global_color_blue_primary_dark">#0288d1</color>
+	<color name="global_color_blue_accent">#ffc107</color>
+	<color name="global_color_blue_control_activated">#ffc107</color>
+
+	<color name="global_color_brown_primary">#795548</color>
+	<color name="global_color_brown_primary_light">#d7ccc8</color>
+	<color name="global_color_brown_primary_dark">#5d4037</color>
+	<color name="global_color_brown_accent">#ffc107</color>
+	<color name="global_color_brown_control_activated">#ffc107</color>
+
+	<color name="global_color_carrot_primary">#ff5722</color>
+	<color name="global_color_carrot_primary_light">#ffccbc</color>
+	<color name="global_color_carrot_primary_dark">#e64a19</color>
+	<color name="global_color_carrot_accent">#4caf50</color>
+	<color name="global_color_carrot_control_activated">#4caf50</color>
+
+	<color name="global_color_gray_primary">#9e9e9e</color>
+	<color name="global_color_gray_primary_light">#f5f5f5</color>
+	<color name="global_color_gray_primary_dark">#616161</color>
+	<color name="global_color_gray_accent">#9e9e9e</color>
+	<color name="global_color_gray_control_activated">#9e9e9e</color>
+
+	<color name="global_color_green_primary">#4caf50</color>
+	<color name="global_color_green_primary_light">#c8e6c9</color>
+	<color name="global_color_green_primary_dark">#388e3c</color>
+	<color name="global_color_green_accent">#ffc107</color>
+	<color name="global_color_green_control_activated">#ffc107</color>
+
+	<color name="global_color_indigo_primary">#3f51b5</color>
+	<color name="global_color_indigo_primary_light">#c5cae9</color>
+	<color name="global_color_indigo_primary_dark">#303f9f</color>
+	<color name="global_color_indigo_accent">#ff4081</color>
+	<color name="global_color_indigo_control_activated">#ff4081</color>
+
+	<color name="global_color_red_primary">#f44336</color>
+	<color name="global_color_red_primary_light">#ffcdd2</color>
+	<color name="global_color_red_primary_dark">#d32f2f</color>
+	<color name="global_color_red_accent">#ffc107</color>
+	<color name="global_color_red_control_activated">#ffc107</color>
+
+	<color name="global_color_yellow_primary">#ffc107</color>
+	<color name="global_color_yellow_primary_light">#ffecb3</color>
+	<color name="global_color_yellow_primary_dark">#ffa000</color>
+	<color name="global_color_yellow_accent">#4caf50</color>
+	<color name="global_color_yellow_control_activated">#4caf50</color>
+
+	<color name="global_text_primary">#de000000</color>
+	<color name="global_text_primary_inverse">#ffffff</color>
+	<color name="global_text_primary_disable_only">#000000</color>
+	<color name="global_text_secondary">#8a000000</color>
+	<color name="global_text_secondary_inverse">#b3ffffff</color>
+	<color name="global_text_tertiary">#8a000000</color>
+	<color name="global_text_tertiary_inverse">#b3ffffff</color>
+	<color name="global_text_hint">#80000000</color>
+	<color name="global_text_hint_inverse">#80ffffff</color>
+	<color name="global_text_highlight">#669e9e9e</color>
+	<color name="global_text_link">#1976d2</color>
+
+	<color name="global_bg_back">#eeeeee</color>
+	<color name="global_bg_back_inverse">#303030</color>
+	<color name="global_bg_front">#ffffff</color>
+	<color name="global_bg_front_inverse">#000000</color>
+	<color name="global_bg_dialog">#eeeeee</color>
+	<color name="global_bg_dialog_inverse">#424242</color>
+
+	<color name="theme_action_mode_bg">#303030</color>
+	<color name="theme_navigation_bar">#000000</color>
+	<color name="theme_button_normal">#d6d7d7</color>
+
+	<color name="drawer_inset_foreground">#40000000</color>
+	<color name="drawer_badge_text_color">#eeffffff</color>
+	<color name="iron">#CCCCCC</color>
+	<color name="white">#FFFFFF</color>
+	<color name="primary">#E43F3F</color>
+	<color name="fragment_poi_list_recycler_item_panel_bg">#88000000</color>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<ImageView
+		android:id="@+id/toolbar_image_imageview"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/toolbar_image_expanded_height"
+		android:layout_gravity="bottom"
+		android:adjustViewBounds="true"
+		android:scaleType="centerCrop" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/toolbar_image_expanded_height"
+		android:orientation="vertical">
+
+		<View
+			android:id="@+id/toolbar_image_panel_top"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/toolbar_image_gap_height" />
+
+		<FrameLayout
+			android:id="@+id/toolbar_image_panel_bottom"
+			android:layout_width="match_parent"
+			android:layout_height="@dimen/toolbar_image_collapsed_height"
+			android:tag="sticky-hastransparancy-nonconstant">
+
+			<TextView
+				android:id="@+id/toolbar_image_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom"
+				android:layout_marginLeft="@dimen/toolbar_image_title_margin_left"
+				android:layout_marginRight="@dimen/global_spacing_xs"
+				android:layout_marginBottom="@dimen/global_spacing_xs"
+				android:paddingRight="@dimen/toolbar_image_title_padding_right"
+				android:paddingBottom="@dimen/global_spacing_xs"
+				android:textAppearance="@style/TextAppearance.CityGuide.Title.Inverse"
+				android:maxLines="2"
+				android:ellipsize="end"
+				android:shadowColor="@android:color/black"
+				android:shadowRadius="16" />
+
+		</FrameLayout>
+	</LinearLayout>
+</FrameLayout>

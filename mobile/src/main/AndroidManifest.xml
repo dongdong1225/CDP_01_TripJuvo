@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.knucapstone.tripjuvo"
+    android:installLocation="auto" >
+
+    <!-- versionCode, versionName, minSdkVersion, targetSdkVersion properties are set via Gradle script -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+
+    <!-- allows the API to access Google web-based services -->
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="com.knucapstone.tripjuvo.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.knucapstone.tripjuvo.permission.C2D_MESSAGE" />
+
+    <!-- maps API needs OpenGL ES 2.0 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <!--
+	You can easily change the main theme. Just modify application.android:theme attribute.
+	There are 8 main themes you can use:
+		Theme.CityGuide.Blue
+		Theme.CityGuide.Brown
+		Theme.CityGuide.Carrot
+		Theme.CityGuide.Gray
+		Theme.CityGuide.Green
+		Theme.CityGuide.Indigo
+		Theme.CityGuide.Red
+		Theme.CityGuide.Yellow
+	Don't forget to modify also MainActivity's theme.
+    -->
+    <application
+        android:name=".CityGuideApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.CityGuide.Indigo"
+        tools:replace="android:icon" >
+
+        <!--
+		Themes for MainActivity:
+			Theme.CityGuide.TransparentStatusBar.Blue
+			Theme.CityGuide.TransparentStatusBar.Brown
+			Theme.CityGuide.TransparentStatusBar.Carrot
+			Theme.CityGuide.TransparentStatusBar.Gray
+			Theme.CityGuide.TransparentStatusBar.Green
+			Theme.CityGuide.TransparentStatusBar.Indigo
+			Theme.CityGuide.TransparentStatusBar.Red
+			Theme.CityGuide.TransparentStatusBar.Yellow
+        -->
+
+        <activity
+            android:name=".activity.SplashScreensActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="standard"
+            android:theme="@style/Theme.CityGuide.TransparentStatusBar.Indigo" >
+        </activity>
+        <activity android:name=".activity.ExpandableListViewActivity" >
+        </activity>
+        <activity
+            android:name=".activity.ExpandableTravelListViewActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".activity.PoiDetailActivity"
+            android:label="@string/title_poi_detail"
+            android:launchMode="standard" />
+        <activity
+            android:name=".activity.DragAndDropTravelActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".activity.WizardTravelActivity"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".activity.DialogUniversalInfoActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:showOnLockScreen="true"
+            >
+        </activity>
+        <activity
+            android:name=".activity.MapActivity"
+            android:label="@string/title_map"
+            android:launchMode="standard" />
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode|smallestScreenSize"
+            tools:replace="android:configChanges" />
+
+        <provider
+            android:name=".content.PoiSearchRecentSuggestionsProvider"
+            android:authorities="com.knucapstone.tripjuvo.content.PoiSearchRecentSuggestionsProvider"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.analytics.globalConfigResource"
+            android:resource="@xml/analytics_global_tracker" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_api_key" />
+
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.SignupActivity"
+            android:label="@string/title_activity_signup"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.FindPathActivity"
+            android:label="@string/title_activity_find_path" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.knucapstone.tripjuvo" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".gcmService.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".gcmService.MyInstanceIDListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".gcmService.RegistrationIntentService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service android:name="com.perples.recosdk.RECOBeaconService" />
+        <service
+            android:name=".beacon.RecoBackgroundMonitoringService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+        <service
+            android:name=".beacon.RecoBackgroundRangingService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".activity.beaconTestActivity"
+            android:label="@string/title_activity_beacon_test" >
+        </activity>
+    </application>
+
+</manifest>
