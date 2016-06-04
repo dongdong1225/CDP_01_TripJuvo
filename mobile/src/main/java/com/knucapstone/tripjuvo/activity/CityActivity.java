@@ -247,7 +247,6 @@ public class CityActivity extends AppCompatActivity implements DrawerAdapter.Cat
                 getSupportActionBar().setTitle(mTitle);
                 supportInvalidateOptionsMenu();
             }
-
             @Override
             public void onDrawerOpened(View drawerView) {
                 getSupportActionBar().setTitle(mTitle);
