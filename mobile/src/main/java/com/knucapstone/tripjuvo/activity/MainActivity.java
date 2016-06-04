@@ -2,7 +2,6 @@ package com.knucapstone.tripjuvo.activity;
 
 import android.Manifest;
 import android.app.ActivityManager;
-import android.app.ActivityOptions;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
@@ -11,6 +10,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -85,9 +86,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 	private static final int REQUEST_LOCATION = 10;
 	private BluetoothManager mBluetoothManager;
 	private BluetoothAdapter mBluetoothAdapter;
+
 	private int beaconMinorValue = 0;
-
-
 
 	Bundle sIState;
 	public static Intent newIntent(Context context) {
@@ -109,69 +109,73 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		Log.i("COUNT", "main1");
-		Intent service = new Intent(this, RegistrationIntentService.class);
-		startService(service);
-		reset();
-		loadFinish = false;
-		task = new phpDown();
-		task.execute("http://tripjuvo.ivyro.net/insertAllPoi.php");//도메인을 실행하게되면 php가 실행되서 데이터전달이 일어난다.
 
-		Log.i("COUNT", "main2");
+			Intent service = new Intent(this, RegistrationIntentService.class);
+			startService(service);
+			reset();
+		ConnectivityManager manager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo mobile = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+		NetworkInfo wifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		sIState = savedInstanceState;
-		SQLiteDatabase db = openOrCreateDatabase(
-				"tripjuvo.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
-		db.execSQL("CREATE TABLE IF NOT EXISTS logins " +
-				"(_id INTEGER PRIMARY KEY AUTOINCREMENT, checks INTEGER, account TEXT, age INTEGER, " +
-				"vehicle TEXT);");
-
-		String sql = "SELECT * from logins where checks = 1;";
-		Cursor c = db.rawQuery(sql, null);
-
-		if (c.getCount() == 0) {
-			Intent intent = new Intent(this, WizardTravelActivity.class);
-			startActivity(intent);
+		if (wifi.isConnected() || mobile.isConnected()) {
+			Log.i("NETWORK_STATE", "CONNECTING");
+			task = new phpDown();
+			task.execute("http://tripjuvo.ivyro.net/insertAllPoi.php");//도메인을 실행하게되면 php가 실행되서 데이터전달이 일어난다.
 		}
-		db.close();
+			Log.i("COUNT", "main2");
 
-		//사용자가 블루투스를 켜도록 요청합니다.
-		mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-		mBluetoothAdapter = mBluetoothManager.getAdapter();
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.activity_main);
+			sIState = savedInstanceState;
+			SQLiteDatabase db = openOrCreateDatabase(
+					"tripjuvo.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+			db.execSQL("CREATE TABLE IF NOT EXISTS logins " +
+					"(_id INTEGER PRIMARY KEY AUTOINCREMENT, checks INTEGER, account TEXT, age INTEGER, " +
+					"vehicle TEXT);");
 
-		if(mBluetoothAdapter == null || !mBluetoothAdapter.isEnabled()) {
-			Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableBTIntent, REQUEST_ENABLE_BT);
-		}
+			String sql = "SELECT * from logins where checks = 1;";
+			Cursor c = db.rawQuery(sql, null);
 
-		//MOS 이상 권한 요청
-		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-			if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-				Log.i("MainActivity", "The location permission (ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION) is not granted.");
-				this.requestLocationPermission();
-			} else {
-				Log.i("MainActivity", "The location permission (ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION) is already granted.");
+			if (c.getCount() == 0) {
+				Intent intent = new Intent(this, WizardTravelActivity.class);
+				startActivity(intent);
 			}
-		}
+			db.close();
 
-		Log.i("MainActivity", "startMonitoringService");
-		Intent monitoringIntent = new Intent(this, RecoBackgroundMonitoringService.class);
-		startService(monitoringIntent);
+			//사용자가 블루투스를 켜도록 요청합니다.
+			mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+			mBluetoothAdapter = mBluetoothManager.getAdapter();
 
-		Log.i("MainActivity", "startRangingService");
-		Intent rangingIntent = new Intent(this, RecoBackgroundRangingService.class);
-		startService(rangingIntent);
+			if (mBluetoothAdapter == null || !mBluetoothAdapter.isEnabled()) {
+				Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+				startActivityForResult(enableBTIntent, REQUEST_ENABLE_BT);
+			}
+
+			//MOS 이상 권한 요청
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+				if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+					Log.i("MainActivity", "The location permission (ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION) is not granted.");
+					this.requestLocationPermission();
+				} else {
+					Log.i("MainActivity", "The location permission (ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION) is already granted.");
+				}
+			}
+
+			Log.i("MainActivity", "startMonitoringService");
+			Intent monitoringIntent = new Intent(this, RecoBackgroundMonitoringService.class);
+			startService(monitoringIntent);
+
+			Log.i("MainActivity", "startRangingService");
+			Intent rangingIntent = new Intent(this, RecoBackgroundRangingService.class);
+			startService(rangingIntent);
 
 
-		saveBeaconMinorValue();
 
-		setupActionBar();
-		setupRecyclerView();
-		setupDrawer(savedInstanceState);
+			setupActionBar();
+			setupRecyclerView();
+			setupDrawer(savedInstanceState);
 
-
-
+			saveBeaconMinorValue();
 	}
 
 	@Override
@@ -419,8 +423,6 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			startActivity(intent);
 			return;
 		}
-
-
 		Fragment fragment = PoiListFragment.newInstance(mCategoryList.get(position).getId());
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager.beginTransaction().replace(R.id.container_drawer_content, fragment).commitAllowingStateLoss();
@@ -644,8 +646,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 			setupRecyclerView();
 			setupDrawer(sIState);
 		}
-	}
 
+	}
 	public void saveBeaconMinorValue()
 	{
 		//비콘 인식시 실행되는 부분

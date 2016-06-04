@@ -1,9 +1,12 @@
 package com.knucapstone.tripjuvo.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +22,7 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.knucapstone.tripjuvo.database.ExpandableData;
 import com.knucapstone.tripjuvo.R;
 import com.knucapstone.tripjuvo.font.RobotoTextView;
 import com.knucapstone.tripjuvo.util.ImageUtil;
@@ -34,13 +38,13 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	private ExampleAdapter adapter;
 	private String city_name;
 	private String picture_URL;
-
+	private Activity activity;
+	ArrayList<ExpandableData> expandableDatalist = new ArrayList<ExpandableData>();
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expandable_list_view_travel);
-
 		Intent intent = new Intent();
 		intent = getIntent();
 		city_name = new String();
@@ -51,6 +55,9 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			picture_URL = intent.getStringExtra("picture_URL");
 		}
 
+		activity = new Activity();
+
+
 		List<GroupItem> items = new ArrayList<GroupItem>();
 		items = fillData(items);
 
@@ -60,6 +67,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		adapter = new ExampleAdapter(this);
 		adapter.setData(items);
 
+		//Git Test
 		//com.knucapstone.tripjuvo;
 		RobotoTextView title;
 		ImageView imageview;
@@ -77,6 +85,8 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		listView.addHeaderView(headerView);
 		listView.setDividerHeight(0);
 		listView.setAdapter(adapter);
+
+		activity = this;
 
 		// In order to show animations, we need to use a custom click handler
 		// for our ExpandableListView.
@@ -97,6 +107,24 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 			}
 
 		});
+		listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+			@Override
+			public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+				int poi_id = 0;
+				for(int i =0; i< expandableDatalist.size();i++) {
+					if (expandableDatalist.get(i).getPosition() == groupPosition &&
+							expandableDatalist.get(i).getChildPosition() == childPosition)
+						poi_id = expandableDatalist.get(i).getPoi_id();
+				}
+
+				Intent intent = PoiDetailActivity.newIntent(activity,poi_id);
+				Log.i("onChildClick",groupPosition + "  " +childPosition+ "  "+id);
+				startActivity(intent);
+				return false;
+			}
+
+		});
 
 		// Set indicator (arrow) to the right
 		Display display = getWindowManager().getDefaultDisplay();
@@ -112,7 +140,6 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		} else {
 			listView.setIndicatorBoundsRelative(width - px, width);
 		}
-
 	}
 
 	private static class GroupItem {
@@ -123,6 +150,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 
 	private static class ChildItem {
 		String title;
+		int poi_id;
 	}
 
 	private static class ChildHolder {
@@ -144,95 +172,81 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	}
 
 	private List<GroupItem> fillData(List<GroupItem> items) {
+
+		//category_id ->1 = where to eat, 2 = where to sleep, 3 = where to go
+		SQLiteDatabase db = openOrCreateDatabase("cityguide.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+
+		Cursor c_eat= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 1 and city = '" + city_name + "';", null);
+		Cursor c_sleep= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 2 and city = '" +city_name+ "';",null);
+		Cursor c_go= db.rawQuery("SELECT * from pois where favorite = 1 and category_id = 3 and city = '" +city_name+ "';",null);
+
+		c_eat.moveToFirst();
+		int cnt_eat = 0;
+		c_sleep.moveToFirst();
+		int cnt_sleep =0;
+		c_go.moveToFirst();
+		int cnt_go = 0;
+		//fu
 		GroupItem item = new GroupItem();
 		item.title = "Where to go";
 		item.icon = R.string.material_icon_go;
-		ChildItem child;
-		child = new ChildItem();
-		child.title = "Monuments";
-		item.items.add(child);
 
-		child = new ChildItem();
-		child.title = "Sightseeing";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Historical";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Sport";
-		item.items.add(child);
-
+		while(c_go.getCount() > 0) {
+			ChildItem child;
+			child = new ChildItem();
+			child.title = c_go.getString(2);
+			child.poi_id = c_go.getInt(0);
+			item.items.add(child);
+			ExpandableData ExpD = new ExpandableData(c_go.getInt(0),0,cnt_go);
+			expandableDatalist.add(ExpD);
+			cnt_go++;
+			if(c_go.isLast())
+				break;
+			c_go.moveToNext();
+		}
 		items.add(item);
 
 		item = new GroupItem();
 		item.title = "Where to sleep";
 		item.icon = R.string.material_icon_sleep;
-		child = new ChildItem();
-		child.title = "Hotels";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Hostels";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Motels";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Rooms";
-		item.items.add(child);
-
+		while(c_sleep.getCount() > 0) {
+			ChildItem child;
+			child = new ChildItem();
+			child.title = c_sleep.getString(2);
+			child.poi_id = c_sleep.getInt(0);
+			item.items.add(child);
+			ExpandableData ExpD = new ExpandableData(c_sleep.getInt(0),1,cnt_sleep);
+			expandableDatalist.add(ExpD);
+			cnt_sleep++;
+			if(c_sleep.isLast())
+				break;
+			c_sleep.moveToNext();
+		}
 		items.add(item);
 
 		item = new GroupItem();
 		item.title = "Where to eat";
 		item.icon = R.string.material_icon_eat;
-		child = new ChildItem();
-		child.title = "Fast Food";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Restorants";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Pubs";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Hotels";
-		item.items.add(child);
-
-		items.add(item);
-
-		item = new GroupItem();
-		item.title = "Where to drink";
-		item.icon = R.string.material_icon_drink;
-		child = new ChildItem();
-		child.title = "Caffes";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Bars";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Pubs";
-		item.items.add(child);
-
-		child = new ChildItem();
-		child.title = "Clubs";
-		item.items.add(child);
-
+		while(c_eat.getCount() > 0) {
+			ChildItem child;
+			child = new ChildItem();
+			child.title = c_eat.getString(2);
+			child.poi_id = c_eat.getInt(0);
+			item.items.add(child);
+			ExpandableData ExpD = new ExpandableData(c_eat.getInt(0),2,cnt_eat);
+			expandableDatalist.add(ExpD);
+			cnt_eat++;
+			if(c_eat.isLast())
+				break;
+			c_eat.moveToNext();
+		}
 		items.add(item);
 
 		return items;
 	}
 
 	private class ExampleAdapter extends AnimatedExpandableListAdapter {
+
 		private LayoutInflater inflater;
 
 		private List<GroupItem> items;
@@ -247,11 +261,14 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 
 		@Override
 		public ChildItem getChild(int groupPosition, int childPosition) {
+			Log.i("ChildItemClick","asdf");
 			return items.get(groupPosition).items.get(childPosition);
-		}
 
+		}
 		@Override
 		public long getChildId(int groupPosition, int childPosition) {
+
+			Log.i("ChildItemClick", "asdf2");
 			return childPosition;
 		}
 
@@ -329,5 +346,6 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		public boolean isChildSelectable(int arg0, int arg1) {
 			return true;
 		}
+
 	}
 }

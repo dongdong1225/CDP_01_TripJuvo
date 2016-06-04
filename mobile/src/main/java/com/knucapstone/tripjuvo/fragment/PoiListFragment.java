@@ -273,7 +273,6 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 //			startPoiDetailActivity(getView(), poi.getId());
 //			Log.i("beaconbeacon", 3 + "@");
 //		}
-
 	}
 
 

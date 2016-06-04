@@ -31,12 +31,14 @@ public class DialogUniversalInfoActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				Intent intent = new Intent(DialogUniversalInfoActivity.this, MainActivity.class);
-				Log.i("BeaconMinor", a+"");
+				Log.i("BeaconMinor", a + "");
 				intent.putExtra("BeaconMinor", a);
 				startActivity(intent);
 				finish();
 			}
 		});
+
+
 		dialog.mDialogCANCELButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

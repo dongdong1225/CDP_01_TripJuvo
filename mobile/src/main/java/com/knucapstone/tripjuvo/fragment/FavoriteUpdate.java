@@ -20,10 +20,10 @@ public class FavoriteUpdate {
         db.execSQL("CREATE TABLE IF NOT EXISTS favorite " +
                 "(poi_id INTEGER PRIMARY KEY, region TEXT);");
 
-        String search = "Select region from pois where id = "+Long.toString(p_Id)+";";
+        String search = "Select * from pois where id = "+Long.toString(p_Id)+";";
         Cursor c = db.rawQuery(search,null);
         c.moveToFirst();
-        String sql = "insert into favorite(poi_id, region) values ("+ Long.toString(p_Id)+",'"+c.getString(0)+"');";
+        String sql = "insert into favorite(poi_id, region) values ("+ Long.toString(p_Id)+",'"+c.getString(13)+"');";
         db.execSQL(sql);
         db.close();
     }
