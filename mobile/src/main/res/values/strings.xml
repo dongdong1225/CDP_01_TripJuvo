@@ -57,6 +57,7 @@
     <string name="title_activity_signup">SignupActivity</string>
     <string name="title_activity_find_path">FindPathActivity</string>
     <string name="title_activity_show_path">ShowPathActivity</string>
+    <string name="double_back_press_app_close">One more tap to EXIT</string>
 
 
     <color name="psts_background_tab_pressed">#1AFFFFFF</color>

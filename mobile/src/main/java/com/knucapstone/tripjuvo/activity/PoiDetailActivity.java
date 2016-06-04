@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
@@ -35,6 +36,14 @@ public class PoiDetailActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_poi_detail);
 		setupActionBar();
+
+		Intent intent = getIntent();
+		int groupPosition = intent.getIntExtra("groupPosition", -1);
+		Log.i("groupPosition", "groupPosition : @@" + groupPosition);
+
+		Intent retIntent = new Intent();
+		retIntent.putExtra("retVal", groupPosition);
+		setResult(RESULT_OK, retIntent);
 	}
 	
 	

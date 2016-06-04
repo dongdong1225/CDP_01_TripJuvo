@@ -78,6 +78,13 @@ public class CityActivity extends AppCompatActivity implements DrawerAdapter.Cat
         setupRecyclerView();
         setupDrawer(savedInstanceState);
 
+        Intent intent = getIntent();
+        int groupPosition = intent.getIntExtra("groupPosition", -1);
+        Log.i("groupPosition", "groupPosition : @@"+ groupPosition);
+
+        Intent retIntent = new Intent();
+        retIntent.putExtra("retVal", groupPosition);
+        setResult(RESULT_OK, retIntent);
         //showGroupCity();
     }
 

@@ -45,6 +45,7 @@ import com.knucapstone.tripjuvo.database.model.CategoryModel;
 import com.knucapstone.tripjuvo.fragment.PoiListFragment;
 import com.knucapstone.tripjuvo.gcmService.RegistrationIntentService;
 import com.knucapstone.tripjuvo.listener.OnSearchListener;
+import com.knucapstone.tripjuvo.util.BackPressCloseHandler;
 import com.knucapstone.tripjuvo.utility.ResourcesUtility;
 import com.knucapstone.tripjuvo.view.DrawerDividerItemDecoration;
 import com.knucapstone.tripjuvo.view.ScrimInsetsFrameLayout;
@@ -86,8 +87,9 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 	private static final int REQUEST_LOCATION = 10;
 	private BluetoothManager mBluetoothManager;
 	private BluetoothAdapter mBluetoothAdapter;
-
 	private int beaconPoi = 0;
+
+	private BackPressCloseHandler backPressCloseHandler;
 
 	Bundle sIState;
 	public static Intent newIntent(Context context) {
@@ -175,6 +177,9 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 
 			saveBeaconMinorValue();
 			//showGroupCity();
+
+		//뒤로 두번 누르면 종료
+		backPressCloseHandler = new BackPressCloseHandler(this);
 	}
 
 	@Override
@@ -267,7 +272,8 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 		if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
 			mDrawerLayout.closeDrawer(Gravity.LEFT);
 		} else {
-			super.onBackPressed();
+			//super.onBackPressed();
+			backPressCloseHandler.onBackPressed();
 		}
 	}
 

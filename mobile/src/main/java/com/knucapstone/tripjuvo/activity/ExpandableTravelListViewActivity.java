@@ -125,13 +125,18 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 					intent = new Intent(activity, CityActivity.class);
 					intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					intent.putExtra("ThisCity", city_name);
+					intent.putExtra("groupPosition", groupPosition);
 					//startActivity(intent);
+					startActivityForResult(intent, 0);
 				}
 				else {
 					intent = PoiDetailActivity.newIntent(activity, poi_id);
+					intent.putExtra("groupPosition", groupPosition);
+					startActivityForResult(intent, 0);
 				}
-				Log.i("onChildClick",groupPosition + "  " +childPosition+ "  "+id);
-				startActivity(intent);
+				Log.i("onChildClick", groupPosition + "  " +childPosition+ "  "+id);
+				//startActivity(intent);
+
 				return false;
 			}
 
@@ -151,6 +156,26 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		} else {
 			listView.setIndicatorBoundsRelative(width - px, width);
 		}
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		int groupPosition = data.getIntExtra("retVal", -1);
+		Log.i("onActivityResult", "groupPosition : " + groupPosition);
+
+		List<GroupItem> items = new ArrayList<GroupItem>();
+		items = fillData(items);
+		adapter = new ExampleAdapter(this);
+		adapter.setData(items);
+		listView.setAdapter(adapter);
+		listView.expandGroupWithAnimation(groupPosition);
+
 	}
 
 	private static class GroupItem {
