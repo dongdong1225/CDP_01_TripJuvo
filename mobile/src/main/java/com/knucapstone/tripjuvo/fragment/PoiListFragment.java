@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -73,6 +74,14 @@ import com.knucapstone.tripjuvo.view.StatefulLayout;
 import com.melnykov.fab.FloatingActionButton;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -109,9 +118,13 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 	private String mSearchQuery;
 	private List<PoiModel> mPoiList = new ArrayList<>();
 	private List<Object> mFooterList = new ArrayList<>();
+	private phpDown task;
+	private ArrayList<Spot> spotArrayList;
+	private AdjMatrix adjMatrix;
 
 	private int beaconMinorValue = 0;
 
+	private ArrayList<String> cityList;
 
 	public static PoiListFragment newInstance(long categoryId)
 	{
@@ -163,6 +176,21 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 		setRetainInstance(true);
+
+		task = new phpDown();
+		task.execute("http://tripjuvo.ivyro.net/selectAllFromRegion.php");
+		synchronized (this)
+		{
+			try{
+				//task.wait();
+				task.get();
+			}
+			catch (Exception e)
+			{
+				Log.i("sync err",e.getMessage());
+
+			}
+		}
 
 		// handle fragment arguments
 		Bundle arguments = getArguments();
@@ -220,16 +248,33 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 
 					Intent intent = new Intent(getActivity(), DragAndDropTravelActivity.class);
 
-					ArrayList<Spot> spotArrayList = new ArrayList<>();
-					for (int i = 0; i < mPoiList.size(); i++) {
-						spotArrayList.add(new Spot(mPoiList.get(i).getName(),
-								mPoiList.get(i).getLatitude(),
-								mPoiList.get(i).getLongitude(),
-								mPoiList.get(i).getImage()));
-					}
+					cityList = new ArrayList<String>();
 
-					AdjMatrix adjMatrix = new AdjMatrix(spotArrayList);
-					ArrayList<Spot> sortedList = adjMatrix.makeAdjMatrix();
+					for (int i = 0; i < mPoiList.size(); i++) {
+						if(!( cityList.contains(mPoiList.get(i).getCity())) ) {
+							cityList.add(mPoiList.get(i).getCity());
+						}
+					}
+					ArrayList<Spot> fovoraitedCity = new ArrayList<Spot>();
+					for(String x : cityList) {
+						Log.i("Added City : ", x);
+						//fovoraitedCity.add(spotArrayList.get(city));
+					}
+					for(Spot spot : spotArrayList)
+					{
+						for(String cityname : cityList) {
+							if (spot.getProvider().equals(cityname))
+							{
+								fovoraitedCity.add(spot);
+							}
+						}
+					}
+					Log.i("wait for task","Finish");
+
+
+
+					//AdjMatrix adjMatrix = new AdjMatrix(spotArrayList);
+					ArrayList<Spot> sortedList = doTSP(fovoraitedCity);
 
 					ArrayList<Location> locationArrayList = new ArrayList<>();
 					ArrayList<String> pictureArrayList = new ArrayList<>();
@@ -1303,5 +1348,89 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 				mSearchView.setSuggestionsAdapter(mSearchSuggestionAdapter);
 			}
 		}
+	}
+
+	private class phpDown extends AsyncTask<String, Integer,String>
+	{
+		@Override
+		protected String doInBackground(String... urls)
+		{
+			Log.i("wait for task","doInBackground");
+			StringBuilder jsonHtml = new StringBuilder();
+			try{
+				// 연결 url 설정
+				URL url = new URL(urls[0]);
+				// 커넥션 객체 생성
+				HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+				// 연결되었으면.
+				if(conn != null){
+					conn.setConnectTimeout(10000);
+					conn.setUseCaches(false);
+					// 연결되었음 코드가 리턴되면.
+					if(conn.getResponseCode() == HttpURLConnection.HTTP_OK)
+					{
+						BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+						for(;;){
+							// 웹상에 보여지는 텍스트를 라인단위로 읽어 저장.
+							String line = br.readLine();
+							if(line == null) break;
+							// 저장된 텍스트 라인을 jsonHtml에 붙여넣음
+							jsonHtml.append(line + "\n");
+						}
+						br.close();
+					}
+					conn.disconnect();
+				}
+			} catch(Exception ex){
+				ex.printStackTrace();
+			}
+			Log.i("wait for task","doInBackground finish");
+			return jsonHtml.toString();
+		}
+
+		@Override
+		protected void onPostExecute(String str)
+		{
+			Log.i("wait for task","onPostExecute");
+			String cityName;
+
+			spotArrayList = new ArrayList<>();
+			Spot spot;
+
+			try{
+				JSONObject root = new JSONObject(str);
+				JSONArray ja = root.getJSONArray("results"); //get the JSONArray which I made in the php file. the name of JSONArray is "results"
+
+				for(int i=0;i<ja.length();i++){
+					JSONObject jo = ja.getJSONObject(i);
+					cityName = jo.getString("city");
+					spot = new Spot(cityName);
+					spot.setLatitude(Double.parseDouble(jo.getString("latitude")));
+					spot.setLongitude(Double.parseDouble(jo.getString("longitude")));
+					spot.setPicture(jo.getString("picture"));
+
+					//if(cityList.contains(spot.getProvider()))
+					//{
+					spotArrayList.add(spot);
+					//}
+
+
+					//cityNameList.add(cityName);
+				}
+
+			}catch (JSONException e){
+				e.printStackTrace();
+			}
+
+			//listview.setAdapter(adapter);
+			Log.i("wait for task","onPostExecute finish");
+		}
+	}//end of private class
+
+	private ArrayList<Spot> doTSP(ArrayList<Spot> checkedSpotList)
+	{
+		adjMatrix = new AdjMatrix(checkedSpotList);
+		return adjMatrix.makeAdjMatrix();
+
 	}
 }

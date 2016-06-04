@@ -39,6 +39,7 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 	private String city_name;
 	private String picture_URL;
 	private Activity activity;
+	private final int childAdd = 9190;
 	ArrayList<ExpandableData> expandableDatalist = new ArrayList<ExpandableData>();
 	@SuppressLint("NewApi")
 	@Override
@@ -117,8 +118,14 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 							expandableDatalist.get(i).getChildPosition() == childPosition)
 						poi_id = expandableDatalist.get(i).getPoi_id();
 				}
-
-				Intent intent = PoiDetailActivity.newIntent(activity,poi_id);
+				Intent intent;
+				if(poi_id == childAdd)
+				{
+					intent = PoiDetailActivity.newIntent(activity, 0);
+				}
+				else {
+					intent = PoiDetailActivity.newIntent(activity, poi_id);
+				}
 				Log.i("onChildClick",groupPosition + "  " +childPosition+ "  "+id);
 				startActivity(intent);
 				return false;
@@ -190,9 +197,9 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 		GroupItem item = new GroupItem();
 		item.title = "Where to go";
 		item.icon = R.string.material_icon_go;
+		ChildItem child;
 
 		while(c_go.getCount() > 0) {
-			ChildItem child;
 			child = new ChildItem();
 			child.title = c_go.getString(2);
 			child.poi_id = c_go.getInt(0);
@@ -204,13 +211,17 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 				break;
 			c_go.moveToNext();
 		}
+		child = new ChildItem();
+		child.title = "+ ADD";
+		child.poi_id = childAdd;
+		item.items.add(child);
+
 		items.add(item);
 
 		item = new GroupItem();
 		item.title = "Where to sleep";
 		item.icon = R.string.material_icon_sleep;
 		while(c_sleep.getCount() > 0) {
-			ChildItem child;
 			child = new ChildItem();
 			child.title = c_sleep.getString(2);
 			child.poi_id = c_sleep.getInt(0);
@@ -222,13 +233,17 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 				break;
 			c_sleep.moveToNext();
 		}
+		child = new ChildItem();
+		child.title = "+ ADD";
+		child.poi_id = childAdd;
+		item.items.add(child);
+
 		items.add(item);
 
 		item = new GroupItem();
 		item.title = "Where to eat";
 		item.icon = R.string.material_icon_eat;
 		while(c_eat.getCount() > 0) {
-			ChildItem child;
 			child = new ChildItem();
 			child.title = c_eat.getString(2);
 			child.poi_id = c_eat.getInt(0);
@@ -240,6 +255,11 @@ public class ExpandableTravelListViewActivity extends AppCompatActivity {
 				break;
 			c_eat.moveToNext();
 		}
+		child = new ChildItem();
+		child.title = "+ ADD";
+		child.poi_id = childAdd;
+		item.items.add(child);
+
 		items.add(item);
 
 		return items;
