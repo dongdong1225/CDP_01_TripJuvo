@@ -1006,7 +1006,7 @@ public class PoiListFragment extends TaskFragment implements DatabaseCallListene
 
 						// show FAB
 						showFloatingActionButton(true);
-						showFloatingActionButton2(false);
+						showFloatingActionButton2(true);
 
 						mCounter = 0;
 					}
