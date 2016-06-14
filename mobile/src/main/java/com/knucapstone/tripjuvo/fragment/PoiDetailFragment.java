@@ -832,7 +832,11 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 		// content
 		if(mPoi.getDescription()!=null && !mPoi.getDescription().trim().equals(""))
 		{
-			userCommentsButton.setText("UserComments(12)");
+			if(mPoiId == 4)
+				userCommentsButton.setText("UserComments(5)");
+			else
+				userCommentsButton.setText("UserComments(6)");
+
 		}
 
 		userCommentsButton.setOnClickListener(new View.OnClickListener()
@@ -1159,6 +1163,7 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 	private void startUserCommentActivity() {
 		try {
 			Intent intent = new Intent(this.getContext(), UserCommentActivity.class);
+			intent.putExtra("poi_id",mPoiId);
 			startActivity(intent);
 		} catch (android.content.ActivityNotFoundException e) {
 			e.printStackTrace();

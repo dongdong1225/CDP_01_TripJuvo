@@ -6,7 +6,7 @@ public class UserCommentsDummyModel {
 	private String mImageURL;
 	private String mText;
 	private int mIconRes;
-	private int mTime;
+	private String mTime;
 	private String mProfileImageURL;
 	private String mUserComment;
 
@@ -17,7 +17,7 @@ public class UserCommentsDummyModel {
 	public UserCommentsDummyModel() {
 	}
 
-	public UserCommentsDummyModel(long id, String imageURL, String text, int iconRes, int time, String ProfileImageURL,String Comments) {
+	public UserCommentsDummyModel(long id, String imageURL, String text, int iconRes, String time, String ProfileImageURL,String Comments) {
 		mId = id;
 		mImageURL = imageURL;
 		mText = text;
@@ -63,9 +63,9 @@ public class UserCommentsDummyModel {
 
 	public void setmProfileImageURL(String mProfileImageURL) {this.mProfileImageURL = mProfileImageURL;}
 
-	public int getmTime() {return mTime;}
+	public String getmTime() {return mTime;}
 
-	public void setmTime(int mTime) {this.mTime = mTime;}
+	public void setmTime(String mTime) {this.mTime = mTime;}
 
 	public String getmUserComment() {return mUserComment;}
 
