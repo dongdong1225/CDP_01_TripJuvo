@@ -155,6 +155,8 @@ public class FindPathActivity extends AppCompatActivity {
         bar.setDisplayShowHomeEnabled(true);
         bar.setDisplayHomeAsUpEnabled(true);
         bar.setHomeButtonEnabled(true);
+        //setTitle(getResources().getString(R.string.find_path_activity_title));
+        bar.setTitle(R.string.find_path_activity_title);
     }
 
 

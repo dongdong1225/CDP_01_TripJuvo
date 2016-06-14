@@ -58,6 +58,7 @@
     <string name="title_activity_find_path">FindPathActivity</string>
     <string name="title_activity_show_path">ShowPathActivity</string>
     <string name="double_back_press_app_close">One more tap to EXIT</string>
+    <string name="find_path_activity_title">Where do you want to go?</string>
 
 
     <color name="psts_background_tab_pressed">#1AFFFFFF</color>
@@ -228,6 +229,7 @@
 
     <string name="google_app_id">1:96405965131:android:f0b0188256e65f31</string>
     <string name="title_activity_beacon_test">beaconTestActivity</string>
+    <string name="title_activity_asdf">asdf</string>
 
 
 </resources>
