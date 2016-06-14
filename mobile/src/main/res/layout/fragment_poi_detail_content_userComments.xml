@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	app:cardBackgroundColor="@color/global_bg_front"
+	app:cardCornerRadius="@dimen/card_corner_radius"
+	app:cardElevation="@dimen/global_elevation_xxs">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/fragment_poi_detail_userComments_button"
+			android:padding="@dimen/global_spacing_xs"
+			android:textAppearance="@style/TextAppearance.CityGuide.Body1"
+			android:fontFamily="sans-serif-light"
+			android:textColor="@color/white"
+			android:text="UserComments"
+			android:background="@color/global_color_indigo_primary"
+			android:textCursorDrawable="@android:drawable/ic_btn_speak_now" />
+
+
+	</LinearLayout>
+</android.support.v7.widget.CardView>
