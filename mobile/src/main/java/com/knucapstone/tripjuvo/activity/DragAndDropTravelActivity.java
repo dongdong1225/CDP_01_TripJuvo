@@ -43,19 +43,6 @@ public class DragAndDropTravelActivity extends AppCompatActivity {
 		checkedItemsArrayList = intent.getStringArrayListExtra("CHECKED_ITEMS");
 		list = new ArrayList<>();
 
-//		list.add(new DummyModㅌel(0, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/0.jpg", "Monument walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(1, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/1.jpg", "River walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(2, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/2.jpg", "City walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(3, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/3.jpg", "Park walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(4, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/4.jpg", "Vilage walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(5, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/5.jpg", "Lake walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(6, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/6.jpg", "Castle walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(7, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/7.jpg", "Beach walk tour", R.string.fontello_heart_empty));
-//		for(int i = 0; i < checkedItemsArrayList.size(); i ++)
-//		{
-//			list.add(new DummyModel(i, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/"+i+".jpg", checkedItemsArrayList.get(i), R.string.fontello_heart_empty));
-//		}
-
 		setUpDragAndDrop();
 		Toast.makeText(this, "Long press an item to start dragging",
 				Toast.LENGTH_SHORT).show();
@@ -84,14 +71,6 @@ public class DragAndDropTravelActivity extends AppCompatActivity {
 		}
 		ArrayList<TravelDummyModel> list = new ArrayList<>();
 
-//		list.add(new DummyModel(0, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/0.jpg", "Monument walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(1, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/1.jpg", "River walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(2, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/2.jpg", "City walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(3, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/3.jpg", "Park walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(4, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/4.jpg", "Vilage walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(5, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/5.jpg", "Lake walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(6, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/6.jpg", "Castle walk tour", R.string.fontello_heart_empty));
-//		list.add(new DummyModel(7, "http://pengaja.com/uiapptemplate/newphotos/listviews/draganddrop/travel/7.jpg", "Beach walk tour", R.string.fontello_heart_empty));
 		for(int i = 0; i < locationArrayList.size(); i ++)
 		{
 			list.add(new TravelDummyModel(i, pictureArrayList.get(i), locationArrayList.get(i).getProvider(), R.string.fontello_heart_empty,"10m","100"));
