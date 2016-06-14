@@ -1,1 +1,1 @@
-include ':mobile', ':reco-sdk-android'
+include ':mobile', ':reco-sdk-android', ':PullZoomView'

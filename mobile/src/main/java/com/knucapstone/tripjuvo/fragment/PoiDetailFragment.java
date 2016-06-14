@@ -17,6 +17,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -37,6 +38,7 @@ import com.knucapstone.tripjuvo.CityGuideApplication;
 import com.knucapstone.tripjuvo.R;
 import com.knucapstone.tripjuvo.activity.MapActivity;
 import com.knucapstone.tripjuvo.activity.PoiDetailActivity;
+import com.knucapstone.tripjuvo.activity.UserCommentActivity;
 import com.knucapstone.tripjuvo.database.DatabaseCallListener;
 import com.knucapstone.tripjuvo.database.DatabaseCallManager;
 import com.knucapstone.tripjuvo.database.DatabaseCallTask;
@@ -453,18 +455,15 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 					.alpha(0F)
 					.setDuration(50)
 					.setInterpolator(new AccelerateDecelerateInterpolator())
-					.setListener(new Animator.AnimatorListener()
-					{
+					.setListener(new Animator.AnimatorListener() {
 						@Override
-						public void onAnimationStart(Animator animator)
-						{
+						public void onAnimationStart(Animator animator) {
 							fab.setEnabled(false);
 						}
 
 
 						@Override
-						public void onAnimationEnd(Animator animator)
-						{
+						public void onAnimationEnd(Animator animator) {
 							fab.setScaleX(0);
 							fab.setScaleY(0);
 							fab.setAlpha(1F);
@@ -475,14 +474,12 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 
 
 						@Override
-						public void onAnimationCancel(Animator animator)
-						{
+						public void onAnimationCancel(Animator animator) {
 						}
 
 
 						@Override
-						public void onAnimationRepeat(Animator animator)
-						{
+						public void onAnimationRepeat(Animator animator) {
 						}
 					});
 		}
@@ -496,6 +493,7 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 		bindDataMap();
 		bindDataDescription();
 		bindDataGap();
+		bindDataUserComments();
 	}
 
 	
@@ -826,6 +824,28 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 		}
 	}
 
+	private void bindDataUserComments()
+	{
+		// reference
+		Button userCommentsButton = (Button) mRootView.findViewById(R.id.fragment_poi_detail_userComments_button);
+
+		// content
+		if(mPoi.getDescription()!=null && !mPoi.getDescription().trim().equals(""))
+		{
+			userCommentsButton.setText("UserComments(12)");
+		}
+
+		userCommentsButton.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				startUserCommentActivity();
+				Log.i("UserCommentActivity","Clickedd!!!");
+			}
+		});
+	}
+
 
 	private void bindDataGap()
 	{
@@ -1133,6 +1153,15 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 		catch(android.content.ActivityNotFoundException e)
 		{
 			// can't start activity
+		}
+	}
+
+	private void startUserCommentActivity() {
+		try {
+			Intent intent = new Intent(this.getContext(), UserCommentActivity.class);
+			startActivity(intent);
+		} catch (android.content.ActivityNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 }

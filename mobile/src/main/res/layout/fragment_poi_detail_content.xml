@@ -48,4 +48,13 @@
 		android:layout_marginLeft="@dimen/fragment_poi_detail_card_margin_horizontal_first"
 		android:layout_marginRight="@dimen/fragment_poi_detail_card_margin_horizontal_last" />
 
+	<include
+		layout="@layout/fragment_poi_detail_content_usercomments"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/fragment_poi_detail_card_margin_vertical"
+		android:layout_marginBottom="@dimen/fragment_poi_detail_card_margin_vertical_last"
+		android:layout_marginLeft="@dimen/fragment_poi_detail_card_margin_horizontal_first"
+		android:layout_marginRight="@dimen/fragment_poi_detail_card_margin_horizontal_last" />
+
 </LinearLayout>

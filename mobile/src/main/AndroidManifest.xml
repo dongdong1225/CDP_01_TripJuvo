@@ -192,6 +192,9 @@
         </service>
 
         <activity android:name=".activity.CityActivity" />
+        <activity android:name=".activity.UserCommentActivity"
+                  android:theme="@style/AppTheme"
+            />
     </application>
 
 </manifest>
