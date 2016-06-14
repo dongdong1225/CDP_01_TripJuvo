@@ -18,6 +18,7 @@ import com.nhaarman.listviewanimations.util.Swappable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.StringTokenizer;
 
 public class UserCommentAdapter extends BaseAdapter implements Swappable,
 		OnClickListener {
@@ -94,7 +95,10 @@ public class UserCommentAdapter extends BaseAdapter implements Swappable,
 		//"http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg"
 		ImageUtil.displayRoundImage(holder.photo, dm.getmProfileImageURL(), null);
 		ImageUtil.displayImage(holder.image, dm.getImageURL(), null);
-		holder.hours.setText(dm.getmTime());
+
+		String[] subString = dm.getmTime().split(":");
+
+		holder.hours.setText(subString[0]+"H "+subString[1]+"M");
 		holder.name.setText(dm.getText());
 		holder.image.setTag(position);
 		holder.like.setTag(position);
