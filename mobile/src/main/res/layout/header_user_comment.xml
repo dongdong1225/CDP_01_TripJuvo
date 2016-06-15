@@ -26,7 +26,7 @@
         android:orientation="vertical" >
 
         <com.knucapstone.tripjuvo.font.RobotoTextView
-            android:id="@+id/name"
+            android:id="@+id/cityName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -37,7 +37,7 @@
             app:typeface="robotoLight" />
 
         <com.knucapstone.tripjuvo.font.RobotoTextView
-            android:id="@+id/name"
+            android:id="@+id/cityAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

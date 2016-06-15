@@ -1164,6 +1164,9 @@ public class PoiDetailFragment extends TaskFragment implements DatabaseCallListe
 		try {
 			Intent intent = new Intent(this.getContext(), UserCommentActivity.class);
 			intent.putExtra("poi_id",mPoiId);
+			intent.putExtra("poi_name",mPoi.getName());
+			intent.putExtra("poi_address", mPoi.getAddress());
+			intent.putExtra("poi_picture", mPoi.getImage());
 			startActivity(intent);
 		} catch (android.content.ActivityNotFoundException e) {
 			e.printStackTrace();

@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.knucapstone.tripjuvo.R;
 import com.knucapstone.tripjuvo.adapter.UserCommentAdapter;
+import com.knucapstone.tripjuvo.font.RobotoTextView;
 import com.knucapstone.tripjuvo.model.UserCommentsDummyModel;
+import com.knucapstone.tripjuvo.util.ImageUtil;
 import com.knucapstone.tripjuvo.view.pzv.PullToZoomListViewEx;
 
 import org.json.JSONArray;
@@ -32,17 +34,32 @@ public class UserCommentActivity extends AppCompatActivity {
 
 	public static final String TAG = "Parallax social";
 	private long poi_id;
+	private String poi_name;
+	private String poi_address;
+	private String poi_picture;
+
 	phpDown task;
 	ImageView iv;
 	ArrayList<UserCommentsDummyModel> list = new ArrayList<>();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_comment);
 		Intent intent = getIntent();
-		poi_id = intent.getLongExtra("poi_id",2);
+		poi_id = intent.getLongExtra("poi_id", 2);
+		poi_name = intent.getStringExtra("poi_name");
+		poi_address = intent.getStringExtra("poi_address");
+		poi_picture = intent.getStringExtra("poi_picture");
 
 		iv = (ImageView) findViewById(R.id.header_parallax_social_new_image);
+		ImageUtil.displayImage(iv, poi_picture, null);
+
+		RobotoTextView cityName = (RobotoTextView) findViewById(R.id.cityName);
+		RobotoTextView cityAddress = (RobotoTextView) findViewById(R.id.cityAddress);
+		cityName.setText(poi_name);
+		cityAddress.setText(poi_address);
+
 		if(poi_id == 4) {
 			task = new phpDown();
 			task.execute(Long.toString(poi_id));
