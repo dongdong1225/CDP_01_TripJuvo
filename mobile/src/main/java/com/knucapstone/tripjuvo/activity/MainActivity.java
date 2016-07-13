@@ -15,6 +15,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -42,6 +43,7 @@ import com.knucapstone.tripjuvo.beacon.RecoBackgroundMonitoringService;
 import com.knucapstone.tripjuvo.beacon.RecoBackgroundRangingService;
 import com.knucapstone.tripjuvo.database.dao.CategoryDAO;
 import com.knucapstone.tripjuvo.database.model.CategoryModel;
+import com.knucapstone.tripjuvo.fragment.HotelPoiListFragment;
 import com.knucapstone.tripjuvo.fragment.PoiListFragment;
 import com.knucapstone.tripjuvo.gcmService.RegistrationIntentService;
 import com.knucapstone.tripjuvo.listener.OnSearchListener;
@@ -49,6 +51,7 @@ import com.knucapstone.tripjuvo.util.BackPressCloseHandler;
 import com.knucapstone.tripjuvo.utility.ResourcesUtility;
 import com.knucapstone.tripjuvo.view.DrawerDividerItemDecoration;
 import com.knucapstone.tripjuvo.view.ScrimInsetsFrameLayout;
+import com.samsistemas.calendarview.widget.CalendarView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -59,8 +62,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity implements DrawerAdapter.CategoryViewHolder.OnItemClickListener, OnSearchListener {
@@ -385,6 +392,32 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 		recyclerView.addItemDecoration(itemDecoration);
 	}
 
+	private void setupHotelDrawer(Bundle savedInstanceState) {
+		mTitle = getTitle();
+		mDrawerTitle = getTitle();
+
+		// reference
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerScrimInsetsFrameLayout = (ScrimInsetsFrameLayout) findViewById(R.id.activity_main_drawer_scrim_layout2);
+
+		// set drawer
+		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+		mDrawerLayout.setStatusBarBackgroundColor(ResourcesUtility.getValueOfAttribute(this, R.attr.colorPrimaryDark));
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close) {
+			@Override
+			public void onDrawerClosed(View view) {
+				getSupportActionBar().setTitle(mTitle);
+				supportInvalidateOptionsMenu();
+			}
+
+			@Override
+			public void onDrawerOpened(View drawerView) {
+				getSupportActionBar().setTitle(mTitle);
+				supportInvalidateOptionsMenu();
+			}
+		};
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+	}
 
 	private void setupDrawer(Bundle savedInstanceState) {
 		mTitle = getTitle();
@@ -421,20 +454,76 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.Cat
 
 	private void selectDrawerItem(int position) {
 
-		//Log.i("@@@", Integer.toString(position));
+		Log.i("@@@", Integer.toString(position));
+		Fragment fragment;
 		if(position == 2) // findPathActivity 호출
 		{
+			setContentView(R.layout.activity_main);
+			setupActionBar();
+			setupRecyclerView();
+			setupDrawer(sIState);
+
 			Intent intent = new Intent(this, FindPathActivity.class);
 			startActivity(intent);
 			return;
 		}
-		Fragment fragment = PoiListFragment.newInstance(mCategoryList.get(position).getId());
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.container_drawer_content, fragment).commitAllowingStateLoss();
 
-		mDrawerAdapter.setSelected(mDrawerAdapter.getRecyclerPositionByCategory(position));
-		setTitle(mCategoryList.get(position).getName());
-		mDrawerLayout.closeDrawer(mDrawerScrimInsetsFrameLayout);
+
+		else if(position == 0 ||position == 1 ||position == 3 ||position == 5){
+
+			fragment = PoiListFragment.newInstance(mCategoryList.get(position).getId());
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			fragmentManager.beginTransaction().replace(R.id.container_drawer_content, fragment).commitAllowingStateLoss();
+
+			mDrawerAdapter.setSelected(mDrawerAdapter.getRecyclerPositionByCategory(position));
+			setTitle(mCategoryList.get(position).getName());
+			mDrawerLayout.closeDrawer(mDrawerScrimInsetsFrameLayout);
+		}
+		else if(position == 4)
+		{
+			setContentView(R.layout.activity_calender_main);
+			setupActionBar();
+			setupRecyclerView();
+			setupHotelDrawer(sIState);
+			CalendarView calendarView;
+			//final TextView textView = (TextView) findViewById(R.id.textview);
+			final ActionBar actionBar = getSupportActionBar();
+			calendarView = (CalendarView) findViewById(R.id.calendar_view);
+
+			calendarView.setFirstDayOfWeek(Calendar.MONDAY);
+			calendarView.setIsOverflowDateVisible(true);
+			calendarView.setCurrentDay(new Date(System.currentTimeMillis()));
+			calendarView.setBackButtonColor(R.color.colorAccent);
+			calendarView.setNextButtonColor(R.color.colorAccent);
+			calendarView.refreshCalendar(Calendar.getInstance(Locale.getDefault()));
+			calendarView.setOnDateLongClickListener(new CalendarView.OnDateLongClickListener() {
+				@Override
+				public void onDateLongClick(@NonNull Date selectedDate) {
+					SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+					//textView.setText(df.format(selectedDate));
+				}
+			});
+
+
+			calendarView.setOnMonthChangedListener(new CalendarView.OnMonthChangedListener() {
+				@Override
+				public void onMonthChanged(@NonNull Date monthDate) {
+					SimpleDateFormat df = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+					if (null != actionBar)
+						actionBar.setTitle(df.format(monthDate));
+				}
+			});
+			fragment = HotelPoiListFragment.newInstance(mCategoryList.get(position).getId());
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			fragmentManager.beginTransaction().replace(R.id.container_drawer_content, fragment).commitAllowingStateLoss();
+
+			mDrawerAdapter.setSelected(mDrawerAdapter.getRecyclerPositionByCategory(position));
+			setTitle(mCategoryList.get(position).getName());
+//			mDrawerLayout = (DrawerLayout)mDrawerLayout.getChildAt(0);
+
+			mDrawerLayout.closeDrawer(mDrawerScrimInsetsFrameLayout);
+		}
+
 	}
 
 

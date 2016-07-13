@@ -183,8 +183,9 @@ public class PoiReadByCategoryQuery extends Query
 				}
 			};
 			test=dataParser.getPoiDateaList();
-			Log.i("size", test.size()+" " + test.get(0).getName());
-			data.setDataObject(dataParser.getPoiDateaList());
+			Log.i("size", test.size() + " " + test.get(0).getName());
+			//data.setDataObject(dataParser.getPoiDateaList());
+			data.setDataObject(PoiDAO.readByCategory(mCategoryId, mSkip, mTake));
 		}
 		else{
 			data.setDataObject(PoiDAO.readByCategory(mCategoryId, mSkip, mTake));

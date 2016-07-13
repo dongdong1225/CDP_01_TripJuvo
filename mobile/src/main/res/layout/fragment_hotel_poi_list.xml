@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.knucapstone.tripjuvo.view.StatefulLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/fragment_poi_list_stateful_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:animateLayoutChanges="true"
+	app:progressLayout="@layout/placeholder_progress"
+	app:offlineLayout="@layout/placeholder_offline"
+	app:emptyLayout="@layout/placeholder_empty">
+
+	<android.support.design.widget.CoordinatorLayout android:layout_width="match_parent"
+		android:layout_height="match_parent" android:fitsSystemWindows="true">
+
+		<android.support.design.widget.AppBarLayout android:id="@+id/app_bar"
+			android:fitsSystemWindows="true" android:layout_height="@dimen/app_bar_height"
+			android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+
+			<android.support.design.widget.CollapsingToolbarLayout android:id="@+id/toolbar_layout"
+				android:fitsSystemWindows="true" android:layout_width="match_parent"
+				android:layout_height="match_parent" app:layout_scrollFlags="scroll|exitUntilCollapsed"
+				app:contentScrim="?attr/colorPrimary">
+
+				<FrameLayout android:id="@+id/content"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+					<com.samsistemas.calendarview.widget.CalendarView
+						android:id="@+id/calendar_view"
+						android:layout_marginTop="56dp"
+						android:layout_marginEnd="2dp"
+						android:layout_marginLeft="2dp"
+						android:layout_marginRight="2dp"
+						android:layout_marginStart="2dp"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@color/colorPrimary"
+						app:calendarBackgroundColor="@color/colorPrimary"
+						app:calendarTitleTextColor="@color/colorAccent"
+						app:currentDayOfMonthColor="@color/white"
+						app:dayOfWeekTextColor="@android:color/white"
+						app:disabledDayBackgroundColor="@color/colorPrimary"
+						app:disabledDayTextColor="@color/colorAccent"
+						app:selectedDayBackgroundColor="@color/colorAccent"
+						app:titleLayoutBackgroundColor="@color/colorPrimary"
+						app:weekLayoutBackgroundColor="@color/colorPrimary"
+						app:weekendColor="@color/red"
+						app:weekend="saturday|sunday">
+					</com.samsistemas.calendarview.widget.CalendarView>
+
+				</FrameLayout>
+
+				<android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+					android:layout_height="?attr/actionBarSize" android:layout_width="match_parent"
+					app:layout_collapseMode="pin" app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+			</android.support.design.widget.CollapsingToolbarLayout>
+		</android.support.design.widget.AppBarLayout>
+
+		<include layout="@layout/content_scrolling" />
+
+		<android.support.design.widget.FloatingActionButton android:id="@+id/fab"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_margin="@dimen/fab_margin" app:layout_anchor="@id/app_bar"
+			app:layout_anchorGravity="bottom|end" android:src="@drawable/ic_add_white_24dp" />
+
+	</android.support.design.widget.CoordinatorLayout>
+
+	<LinearLayout
+		android:id="@+id/container_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/fragment_poi_list_recycler"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:scrollbars="vertical"
+			android:background="@color/global_bg_front" />
+
+		<!-- AdView is added here programmatically -->
+
+	</LinearLayout>
+</com.knucapstone.tripjuvo.view.StatefulLayout>

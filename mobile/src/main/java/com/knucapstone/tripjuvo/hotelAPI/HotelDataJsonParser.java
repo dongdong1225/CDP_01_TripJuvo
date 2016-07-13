@@ -1,10 +1,13 @@
 package com.knucapstone.tripjuvo.hotelAPI;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.knucapstone.tripjuvo.CityGuideApplication;
+import com.knucapstone.tripjuvo.CityGuideConfig;
 import com.knucapstone.tripjuvo.database.data.Data;
 import com.knucapstone.tripjuvo.database.model.PoiModel;
 
@@ -24,6 +27,10 @@ public class HotelDataJsonParser{
     ImageView imView;
     TextView txtView;
     public int flag = 0;
+
+    private static final String DATABASE_NAME = CityGuideConfig.DATABASE_NAME;
+    private static final String DATABASE_PATH = "/data/data/" + CityGuideApplication.getContext().getPackageName() + "/databases/";
+    private static final int DATABASE_VERSION = CityGuideConfig.DATABASE_VERSION;
 
     public phpDown task; //웹서버의 php를 실행하기 위한 인스턴스
     ArrayList<ListItem> listitem = new ArrayList<ListItem>();
@@ -73,7 +80,7 @@ public class HotelDataJsonParser{
 
     public void start() {
         task = new phpDown();
-        task.execute("http://partners.api.skyscanner.net/apiservices/hotels/liveprices/v2/UK/EUR/en-GB/35.837804,128.5542113-latlong/2016-12-04/2016-12-10/2/1?apiKey=kn611914167123204522255254589261");
+        task.execute("http://partners.api.skyscanner.net/apiservices/hotels/liveprices/v2/UK/EUR/en-GB/35.837804,128.5542113-latlong/2016-06-22/2016-06-27/2/1?apiKey=kn611914167123204522255254589261");
         try
         {
             task.wait(); //도메인을 실행하게되면 php가 실행되서 데이터전달이 일어난다.
@@ -131,13 +138,19 @@ public class HotelDataJsonParser{
             JSONObject jo = new JSONObject();
 
 
+
             try{
                 JSONObject root = new JSONObject(str);
                 JSONArray imageUrl;
                 JSONArray ja = root.getJSONArray("hotels"); //get the JSONArray which I made in the php file. the name of JSONArray is "results"
 
-
                 listitem.add(new ListItem(ja.getString(0)));
+
+                SQLiteDatabase db = SQLiteDatabase.openDatabase(DATABASE_PATH + DATABASE_NAME, null, DATABASE_VERSION);
+                int cnt = ja.length();
+                String update_sql = "UPDATE sqlite_sequence set seq = "+Integer.toString(cnt)+" where name = 'pois';";
+                db.execSQL(update_sql);
+
 
                 for(int i=0;i<ja.length();i++){
 
@@ -148,14 +161,17 @@ public class HotelDataJsonParser{
                     poimodel.setLatitude(Double.parseDouble(jo.getString("latitude")));
                     poimodel.setLongitude(Double.parseDouble(jo.getString("longitude")));
                     data.imageUrl = jo.getString("images");
+                    String convertedImageURL="";
                     try
                     {
                         Log.i("DataSetting", "http://d16eaqi26omzol.cloudfront.net/available/" + data.imageUrl.substring(4,12) + "/rmt.jpg");
+                        convertedImageURL = "http://d16eaqi26omzol.cloudfront.net/available/" + data.imageUrl.substring(4,12) + "/rmt.jpg";
                         poimodel.setImage("http://d16eaqi26omzol.cloudfront.net/available/" + data.imageUrl.substring(4,12) + "/rmt.jpg");
                     }
                    catch (Exception e)
                    {
                        poimodel.setImage("");
+                       convertedImageURL = "";
                        Log.i("DataSetting", "Image-Err");
                    }
                     poiDateaList.add(poimodel);
@@ -163,6 +179,19 @@ public class HotelDataJsonParser{
                     data.hotel_id = jo.getString("hotel_id");
                     data.latitude = jo.getString("latitude");
                     data.longitute = jo.getString("longitude");
+
+                    String sql = "INSERT INTO pois (id, category_id, name, intro, description, image, link, " +
+                            "latitude, longitude, address, phone, email, favorite, city) values (" + data.hotel_id + "," + 2 +
+                            ",'" + data.hotel_name + "','" + "intro" + "','" + "Description" + "','" + convertedImageURL
+                            + "','" + "http://goo.gl/VBaUeq" + "'," + data.latitude + "," +
+                            data.longitute + ",'" + "address " + "','" + "phone" + "','" + "email" + "', 0 ,'" + "Daegu" + "');";
+                    try {
+                        db.execSQL(sql);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.i("DB","execSQL ERROR");
+                    }
                     //imageUrl = jo.getJSONArray("images");
                 }
                 Log.i("poiDateaListSIZE", poiDateaList.size()+"");

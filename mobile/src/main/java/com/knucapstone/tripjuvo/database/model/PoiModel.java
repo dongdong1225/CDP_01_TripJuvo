@@ -37,9 +37,7 @@ public class PoiModel implements ClusterItem, Comparable<PoiModel>
 	@DatabaseField(columnName=COLUMN_PHONE) private String phone;
 	@DatabaseField(columnName=COLUMN_EMAIL) private String email;
 	@DatabaseField(columnName=COLUMN_FAVORITE) private boolean favorite;
-
-
-
+	private boolean isHotel;
 	@DatabaseField(columnName=COLUMN_CITY) private String city;
 	private transient int distance;
 
@@ -49,6 +47,13 @@ public class PoiModel implements ClusterItem, Comparable<PoiModel>
 	{
 	}
 
+	public boolean isHotel() {
+		return isHotel;
+	}
+
+	public void setIsHotel(boolean isHotel) {
+		this.isHotel = isHotel;
+	}
 
 	@Override
 	public LatLng getPosition()
